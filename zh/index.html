@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>950 Van Ness Ave — 住宅重建研究报告</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --text: #1c2434;
+      --muted: #667085;
+      --line: #e6eaf2;
+      --brand: #183969;
+      --brand-2: #2457a6;
+      --accent: #eef4ff;
+      --shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef3fb 0%, var(--bg) 220px);
+    }
+    .page { max-width: 1380px; margin: 0 auto; padding: 28px; }
+    .hero {
+      background: linear-gradient(135deg, var(--brand) 0%, #234a86 45%, #2e6bc0 100%);
+      color: white; border-radius: 26px; padding: 34px 36px; box-shadow: var(--shadow); margin-bottom: 24px;
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; opacity: .82; margin-bottom: 10px; }
+    h1 { margin: 0 0 10px; font-size: 38px; line-height: 1.05; }
+    .hero p { margin: 0; max-width: 950px; line-height: 1.6; color: rgba(255,255,255,.92); }
+    .meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .pill { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 8px 12px; font-size: 13px; }
+    .layout { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 22px; align-items: start; }
+    .sidebar { position: sticky; top: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; }
+    .sidebar h3 { margin: 6px 8px 12px; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .tablist { display: flex; flex-direction: column; gap: 8px; }
+    .tab-btn { width: 100%; text-align: left; border: 1px solid transparent; background: transparent; color: var(--text); padding: 12px 14px; border-radius: 12px; cursor: pointer; font-size: 14px; line-height: 1.4; }
+    .tab-btn:hover { background: #f7f9fd; }
+    .tab-btn.active { background: var(--accent); color: var(--brand); border-color: #cddcf8; font-weight: 600; }
+    .content { display: flex; flex-direction: column; gap: 18px; }
+    .panel { display: none; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 26px; }
+    .panel.active { display: block; }
+    .section-title { margin: 0 0 14px; color: var(--brand); font-size: 28px; line-height: 1.15; }
+    .lede { background: #f8fbff; border-left: 4px solid var(--brand-2); padding: 14px 16px; border-radius: 12px; margin-bottom: 18px; color: #344054; line-height: 1.65; }
+    p { line-height: 1.7; margin: 0 0 14px; }
+    ul { margin: 0 0 14px 0; padding-left: 20px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 16px 0 20px; }
+    .card { background: #fafcff; border: 1px solid var(--line); border-radius: 16px; padding: 14px; }
+    .card .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+    .card .v { font-size: 28px; font-weight: 700; color: var(--brand); margin-bottom: 6px; }
+    .card .s { color: #475467; font-size: 13px; line-height: 1.45; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 18px; font-size: 14px; }
+    th, td { border: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.5; }
+    th { background: #f6f8fc; color: var(--brand); font-weight: 700; }
+    .source { font-size: 13px; color: var(--muted); margin-top: 10px; }
+    .quote { background: linear-gradient(180deg, #f8fbff, #eef4ff); border: 1px solid #d4e1fb; border-radius: 16px; padding: 18px; font-size: 18px; line-height: 1.6; color: #23314f; }
+    .figure { margin: 18px 0 20px; background: #fbfcfe; border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+    .figure img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: white; }
+    .figcap { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+    .two-col { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+    .mini { background: #fafcff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .mini h4 { margin: 0 0 10px; color: var(--brand); font-size: 18px; }
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .page { padding: 16px; }
+      .hero { padding: 24px 20px; }
+      h1 { font-size: 30px; }
+      .cards { grid-template-columns: 1fr; }
+      .panel { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">住宅重建定位研究报告</div>
+      <h1>950 Van Ness Ave, San Francisco, CA 94109</h1>
+      <p>本报告旨在将 950 Van Ness 定位为一个具备说服力的住宅重建机会：不仅从地块本身出发，也结合周边子市场与旧金山整体多户住宅市场数据、社区配套以及清晰的投资叙事，来强化其区位价值。</p>
+      <div class="meta">
+        <div class="pill">Prepared for Alina</div>
+        <div class="pill">日期：2026-03-18</div>
+        <div class="pill">版本：简体中文版互动网页</div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>目录</h3>
+        <div class="tablist">
+          <button class="tab-btn active" data-tab="overview">概览</button>
+          <button class="tab-btn" data-tab="property">地块定位</button>
+          <button class="tab-btn" data-tab="why">为什么适合住宅</button>
+          <button class="tab-btn" data-tab="demographics">人口与住户特征</button>
+          <button class="tab-btn" data-tab="submarket">子市场数据</button>
+          <button class="tab-btn" data-tab="metro">旧金山整体市场</button>
+          <button class="tab-btn" data-tab="resident">潜在居住人群</button>
+          <button class="tab-btn" data-tab="amenities">配套设施</button>
+          <button class="tab-btn" data-tab="housing">住宅产品基础</button>
+          <button class="tab-btn" data-tab="corridor">走廊发展故事</button>
+          <button class="tab-btn" data-tab="message">给买家的核心信息</button>
+          <button class="tab-btn" data-tab="risks">风险与注意点</button>
+          <button class="tab-btn" data-tab="sources">方法与数据来源</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="panel active" id="overview">
+          <h2 class="section-title">执行摘要</h2>
+          <div class="lede"><strong>核心结论：</strong>950 Van Ness 位于旧金山核心城市走廊，周边已具备高密度城市居住所需的主要条件。医疗、文化、零售、教育与公共交通资源都在可达范围内。CoStar 最新的 Civic Center / Tenderloin 多户住宅子市场数据显示，该区域基本面正在改善：空置率已收窄至 5.5%，平均租金达到每单位 2,591 美元，过去 12 个月没有新增交付。</div>
+          <div class="cards">
+            <div class="card"><div class="k">子市场空置率</div><div class="v">5.5%</div><div class="s">较一年前 6.7% 明显改善。</div></div>
+            <div class="card"><div class="k">子市场平均租金</div><div class="v">$2,591</div><div class="s">低于全市均值，支撑以性价比为导向的租赁需求。</div></div>
+            <div class="card"><div class="k">旧金山整体空置率</div><div class="v">4.3%</div><div class="s">根据 CoStar，已接近十年低位。</div></div>
+            <div class="card"><div class="k">旧金山整体平均租金</div><div class="v">$3,435</div><div class="s">体现整个都会市场的高租金承接能力。</div></div>
+          </div>
+          <ul>
+            <li><strong>核心区位：</strong>可便捷到达 Downtown、Hayes Valley、Nob Hill、Japantown、SOMA 及北部多个社区。</li>
+            <li><strong>交通驱动优势：</strong>Van Ness BRT 显著提升了走廊的通勤效率、稳定性与安全性。</li>
+            <li><strong>已有住宅先例：</strong>100 Van Ness、150 Van Ness 与 Opera Plaza 等项目证明该走廊已被市场验证为成熟住宅区位。</li>
+            <li><strong>机构型需求支撑：</strong>医疗、教育与公共机构带来稳定的人流与居住需求。</li>
+            <li><strong>重建逻辑清晰：</strong>该地块当前更像一个遗留型汽车用途，而所在走廊越来越适合住宅与混合用途开发。</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="property">
+          <h2 class="section-title">地块定位</h2>
+          <p>公开资料普遍将 950 Van Ness 识别为原 Mercedes-Benz / 汽车相关用途物业。正因为如此，这块地在今天的 Van Ness 走廊上更像是一个历史遗留的低强度汽车用途，而不是最优的当前土地利用方式。与其现状相比，住宅或住宅导向的混合用途显然更契合周边发展趋势。</p>
+          <div class="two-col">
+            <div class="mini">
+              <h4>现状特征</h4>
+              <ul>
+                <li>汽车 / 4S 店 / 车辆相关用途属性明显</li>
+                <li>位于重要城市走廊上的低强度遗留用途</li>
+                <li>从今日市场逻辑看，更适合转向住宅或混合用途</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>最优叙事方向</h4>
+              <ul>
+                <li>以交通升级为基础的住宅重建机会</li>
+                <li>叠加医疗、文化与日常配套的便利性</li>
+                <li>不是“等待未来兑现”的区位，而是已被市场接受的城市居住地段</li>
+              </ul>
+            </div>
+          </div>
+          <p><strong>核心卖点：</strong>这不是旧金山边缘位置，而是旧金山中心区的重要大道沿线，交通投资与社区配套已经到位。</p>
+          <p class="source">需要说明的是，地块层面的 zoning、尺寸、建筑指标等，仍应在正式投资材料中结合 OM 与旧金山规划资料进一步核实。</p>
+        </section>
+
+        <section class="panel" id="why">
+          <h2 class="section-title">为什么这里适合做住宅</h2>
+          <h3>1. 中心性强</h3>
+          <p>Van Ness 是旧金山南北向的重要城市主轴之一。以 950 Van Ness 为起点，居民能够较方便地到达 Downtown、Civic Center、Hayes Valley、Polk Street、Nob Hill 与 Japantown。对城市型住宅产品来说，这种多节点可达性本身就是最重要的价值之一。</p>
+          <h3>2. 公共交通改善明显</h3>
+          <p>Van Ness 已不再只是宽阔的车行道路。根据 SFMTA，Van Ness BRT 通过中央专用公交车道改善了运行效率与可靠性，公交出行最快可提升 36%，可靠性提升 45%，伤害型交通事故下降 50%。对于住宅产品而言，这意味着更低的汽车依赖与更高的日常可用性。</p>
+          <ul>
+            <li>直接接入 Van Ness BRT / Rapid Network 主干线路</li>
+            <li>可衔接 Market Street 以及更广泛的区域就业节点</li>
+            <li>步行环境与道路安全性均有改善</li>
+            <li>更支持高密度住宅，而不是传统汽车导向前场展示用途</li>
+          </ul>
+          <h3>3. 机构型需求稳定</h3>
+          <p>走廊沿线集中了公共机构、医疗机构与教育设施，为区域带来持续的日间与夜间活动强度。这不是纯粹依赖“未来想象”的开发逻辑，而是已经有现实需求基础支撑的住宅区位。</p>
+        </section>
+
+        <section class="panel" id="demographics">
+          <h2 class="section-title">人口与住户特征</h2>
+          <p>该物业位于 San Francisco County 的 Census Tract 122.02。该区域呈现出成熟、城市化、租赁导向明显的人口特征；虽然家庭收入低于旧金山全市平均水平，但仍拥有相当比例的高学历人口与高密度公寓存量，这在旧金山中心区域是常见特征。</p>
+          <table>
+            <thead><tr><th>指标</th><th>周边普查区</th><th>旧金山全市</th><th>解读</th></tr></thead>
+            <tbody>
+              <tr><td>总人口</td><td>3,017</td><td>836,321</td><td>典型高密度城市社区环境</td></tr>
+              <tr><td>年龄中位数</td><td>46.2</td><td>39.7</td><td>居民年龄结构较全市更成熟</td></tr>
+              <tr><td>家庭收入中位数</td><td>$54,650</td><td>$141,446</td><td>周边更偏向混合收入 / 劳动力型居住群体</td></tr>
+              <tr><td>总住房单元</td><td>1,702</td><td>411,542</td><td>多户住宅环境明显</td></tr>
+              <tr><td>自有住房</td><td>178</td><td>139,610</td><td>区域自住比例较低</td></tr>
+              <tr><td>租赁住房</td><td>1,310</td><td>223,040</td><td>对租赁型产品更友好</td></tr>
+              <tr><td>25 岁以上本科人数</td><td>630</td><td>234,704</td><td>具备一定教育水平基础</td></tr>
+              <tr><td>25 岁以上本科及以上</td><td>892</td><td>402,351</td><td>本地仍有较高学历住户支撑</td></tr>
+            </tbody>
+          </table>
+          <p>虽然该普查区并非旧金山收入最高的地段，但这并不削弱其住宅重建逻辑。相反，它说明这条走廊本身已经承载了高密度住宅生活。若产品设计与定位得当，新项目完全有机会凭借区位、交通、医疗便利性与更新的产品品质，吸引更强的租户或买家客群。</p>
+        </section>
+
+        <section class="panel" id="submarket">
+          <h2 class="section-title">Civic Center / Tenderloin 多户住宅子市场</h2>
+          <div class="figure">
+            <img src="submarket-map.png" alt="Civic Center / Tenderloin 子市场地图" />
+            <div class="figcap">Civic Center / Tenderloin 多户住宅子市场地图。</div>
+          </div>
+          <p>CoStar 的子市场报告证明，950 Van Ness 的价值并不只是“附近配套不错”。更重要的是，其所在的多户住宅子市场本身正在恢复并改善。进入 2026 年，该子市场空置率收窄、租金上涨，且近期没有新增交付，这让现有及未来项目拥有更好的租金议价空间。</p>
+          <table>
+            <thead><tr><th>指标</th><th>子市场</th><th>旧金山整体</th><th>对 950 Van Ness 的意义</th></tr></thead>
+            <tbody>
+              <tr><td>存量单元数</td><td>11,184</td><td>190,858</td><td>说明这里是成熟住宅子市场，而非新兴片区</td></tr>
+              <tr><td>空置率</td><td>5.5%</td><td>4.3%</td><td>仍高于全市，但趋势改善明显</td></tr>
+              <tr><td>空置单元</td><td>610</td><td>8.1K</td><td>去化压力存在，但可租库存已往积极方向变化</td></tr>
+              <tr><td>平均要价租金 / 单元</td><td>$2,591</td><td>$3,435</td><td>相对全市更具可负担性，支撑价格敏感型需求</td></tr>
+              <tr><td>有效租金 / 单元</td><td>$2,575</td><td>$3,414</td><td>有效租金与挂牌租金差距不大，说明让利有限</td></tr>
+              <tr><td>租金优惠率</td><td>0.6%</td><td>0.6%</td><td>与全市持平</td></tr>
+              <tr><td>在建单元</td><td>0</td><td>2,939</td><td>子市场内部几乎没有直接新增竞争供给</td></tr>
+              <tr><td>过去 12 个月交付</td><td>0</td><td>1,584</td><td>未来项目受新供给冲击较小</td></tr>
+              <tr><td>销售价格 / 单元</td><td>$370K</td><td>$537K</td><td>比全市更低的进入成本可能更吸引价值型买家</td></tr>
+              <tr><td>市场资本化率</td><td>4.8%</td><td>4.5%</td><td>收益率略高于全市平均</td></tr>
+              <tr><td>过去 12 个月成交额</td><td>$33.3M</td><td>$2.7B</td><td>流动性偏薄，但并非没有交易</td></tr>
+              <tr><td>过去 12 个月成交宗数</td><td>8</td><td>425</td><td>深度有限，但市场未冻结</td></tr>
+            </tbody>
+          </table>
+          <p>CoStar 还指出，该子市场约有 11,000 个市场化住宅单元及约 4,000 个保障性住宅单元；过去一年没有新增交付，也没有新的开工。这个“供给暂停”非常关键——它让现有与未来项目在出租时，不必直接面对一波集中涌入的新产品竞争。</p>
+        </section>
+
+        <section class="panel" id="metro">
+          <h2 class="section-title">旧金山整体多户住宅市场</h2>
+          <div class="figure">
+            <img src="sf-market-map.png" alt="旧金山多户住宅市场地图" />
+            <div class="figcap">旧金山多户住宅市场地图。</div>
+          </div>
+          <p>从全市层面看，950 Van Ness 所在位置的故事会更有说服力。CoStar 显示，旧金山多户住宅市场在 2026 年初保持强劲：空置率已降至 4.3%，平均租金约为每单位 3,435 美元，年度租金增长速度在美国主要城市中处于较快水平，而供给仍显不足。</p>
+          <table>
+            <thead><tr><th>指标</th><th>旧金山</th><th>全美</th><th>意义</th></tr></thead>
+            <tbody>
+              <tr><td>空置率</td><td>4.3%</td><td>8.6%</td><td>旧金山明显比全美平均更紧</td></tr>
+              <tr><td>平均挂牌租金 / 单元</td><td>$3,435</td><td>$1,770</td><td>全市租金水平显著高于全国</td></tr>
+              <tr><td>有效租金 / 单元</td><td>$3,414</td><td>$1,749</td><td>折价有限，价格承接能力较强</td></tr>
+              <tr><td>租金优惠率</td><td>0.6%</td><td>1.2%</td><td>优惠水平低于全国平均</td></tr>
+              <tr><td>销售价格 / 单元</td><td>$537K</td><td>$233K</td><td>投资者仍愿意为旧金山多户住宅支付溢价</td></tr>
+              <tr><td>资本化率</td><td>4.5%</td><td>6.1%</td><td>较低 cap rate 反映更强的长期预期</td></tr>
+              <tr><td>家庭收入中位数</td><td>$154,217</td><td>$84,512</td><td>全市收入基础足以支撑高租金</td></tr>
+              <tr><td>过去 12 个月吸纳量</td><td>3,045</td><td>395,305</td><td>即便成本高，需求仍在持续</td></tr>
+              <tr><td>在建单元</td><td>2,939</td><td>551,407</td><td>有建设活动，但相对历史水平仍偏低</td></tr>
+            </tbody>
+          </table>
+          <p>CoStar 的城市级叙事中，有几条对 950 Van Ness 特别有利：首先，市中心与核心区住宅需求正在恢复；其次，返岗办公与 AI / 科技相关招聘，正在把更高收入的租户重新带回旧金山；同时，高建造成本、复杂审批流程与融资收紧又抑制了新供给。换句话说，需求恢复而供给受限，这正是最有利于优质住宅重建项目的市场背景。</p>
+          <p>对 950 Van Ness 来说，结论很直接：它不仅位于一个正在改善的子市场之中，更位于一个在空置率、租金、优惠率与定价能力上都优于全国平均水平的大都会市场之中。</p>
+        </section>
+
+        <section class="panel" id="resident">
+          <h2 class="section-title">哪些人会想住在这里？</h2>
+          <ul>
+            <li>希望住在城市核心、但不想高度依赖汽车的年轻专业人士</li>
+            <li>受益于 CPMC 及周边医疗办公资源的医疗从业人员</li>
+            <li>与附近教育机构有关联的研究生、教师与教育相关群体</li>
+            <li>希望缩小居住面积、但保留便利与文化生活的成熟住户 / 空巢家庭</li>
+            <li>看重旧金山核心地址、交通与生活便利的本地及国际租客</li>
+            <li>偏好餐饮、文化、购物与多社区切换便利性的城市生活型住户</li>
+            <li>希望以低于旧金山整体均价的租金，获取中心区位的性价比型租客</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="amenities">
+          <h2 class="section-title">教育、医疗、宗教与日常生活配套</h2>
+          <div class="two-col">
+            <div class="mini">
+              <h4>学校 / 教育设施</h4>
+              <ul>
+                <li>Sacred Heart Cathedral Preparatory School</li>
+                <li>Tenderloin Community School</li>
+                <li>Redding Elementary School</li>
+                <li>DeMarillac Academy</li>
+                <li>Stuart Hall High School</li>
+                <li>Academy of Art University 周边项目</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>医疗资源</h4>
+              <ul>
+                <li>CPMC Van Ness Campus — 274 床位医院</li>
+                <li>周边医疗办公资源密集</li>
+                <li>对医疗从业者、家属型租客及重视便利性的住户有吸引力</li>
+              </ul>
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="mini">
+              <h4>宗教场所</h4>
+              <ul>
+                <li>Saint Mark’s Lutheran Church</li>
+                <li>First Unitarian Universalist Church</li>
+                <li>Hamilton Square Baptist Church</li>
+                <li>Trinity Episcopal Church</li>
+                <li>Saint Gregory of Nyssa Episcopal Church</li>
+                <li>Al Tawheed Mosque</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>零售 / 超市 / 日常消费</h4>
+              <ul>
+                <li>Whole Foods Market</li>
+                <li>Trader Joe’s</li>
+                <li>Nijiya Market</li>
+                <li>Sutter Fine Foods</li>
+                <li>Golden Farmer Market</li>
+                <li>Opera Plaza、Japantown / Japan Center、Polk Street</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="housing">
+          <h2 class="section-title">周边住宅产品基础</h2>
+          <p>支持住宅重建最有力的一点其实非常简单：这条走廊已经被市场证明是可居住、可接受、可持续的住宅地址。</p>
+          <ul>
+            <li><strong>100 Van Ness</strong> 是重要的办公改公寓成功案例。</li>
+            <li><strong>150 Van Ness</strong> 进一步强化了该走廊作为现代多户住宅地址的市场认知。</li>
+            <li><strong>Opera Plaza</strong> 以及周边多户住宅项目，说明这里并不是从零开始建立住宅氛围。</li>
+          </ul>
+          <p>因此，买家并不是在“创造”一个新的住宅节点，而是在一个已经存在住宅基础的区位中，把一个过时的土地用途，替换为更符合当前市场逻辑的产品。</p>
+        </section>
+
+        <section class="panel" id="corridor">
+          <h2 class="section-title">走廊发展故事：从汽车走廊到城市住宅大道</h2>
+          <p>Van Ness 的魅力在于，它并不是一个普通街区，而是一条被公共投资与城市政策持续推动升级的核心走廊。它曾经在部分路段较为汽车导向，但如今正逐步变成一个更安全、更高效、更适合住宅与混合用途开发的城市大道。</p>
+          <ul>
+            <li>旧金山总体规划将 Van Ness 定位为重要混合用途与交通走廊</li>
+            <li>BRT 投资清晰体现了公共部门对走廊长期表现的支持</li>
+            <li>周边住宅与改造项目证明私人资本已认可住宅方向</li>
+            <li>传统汽车用途在如此核心的走廊上，显得越来越低效</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="message">
+          <h2 class="section-title">给买家的核心信息</h2>
+          <div class="quote">“这个地块提供了一个难得机会：将一块典型的旧式汽车用途物业，重建为位于成熟城市走廊中的住宅项目。这里已经具备住宅买家和租客最看重的基本条件——中心区位、公共交通、医疗资源、超市零售、文化氛围、学校以及完整的社区基础设施。Van Ness 并不需要依赖一个纯粹假设性的未来故事来成立，它现在就已经成立，而公共空间与交通系统的升级，只会让这个逻辑更强。”</div>
+        </section>
+
+        <section class="panel" id="risks">
+          <h2 class="section-title">风险与注意点</h2>
+          <ul>
+            <li>周边普查区收入水平低于全市均值，因此项目叙事应更多强调走廊升级、中心可达性与产品差异化，而不是仅依赖当前周边收入水平。</li>
+            <li>Civic Center / Tenderloin 一带在市场认知层面仍可能存在一定顾虑，因此需要用医疗、文化、交通改善与核心走廊定位来对冲这种印象。</li>
+            <li>CoStar 数据显示子市场正在改善，但其空置率与租金水平仍落后于全市平均，因此财务假设需要保持审慎。</li>
+            <li>子市场成交量相对有限，因此估值支撑与买方深度可能不如更强势的机构型子市场。</li>
+            <li>在正式投资材料中，仍需结合规划资料与 OM 进一步核实地块、容积、限高、开发强度与单位数假设。</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="sources">
+          <h2 class="section-title">方法与数据来源</h2>
+          <p>本互动网页基于最终版研究文档整理，并重新设计为更便于阅读、演示与分享的网页格式。</p>
+          <ul>
+            <li>客户提供的 950 Van Ness Ave OM（Offering Memorandum）</li>
+            <li>CoStar：Civic Center / Tenderloin 多户住宅子市场报告</li>
+            <li>CoStar：San Francisco 多户住宅市场报告</li>
+            <li>美国人口普查局 2023 ACS 5-Year Profile 数据</li>
+            <li>San Francisco General Plan：Van Ness Avenue</li>
+            <li>SFMTA：Van Ness Bus Rapid Transit 项目资料</li>
+            <li>Sutter Health / CPMC Van Ness Campus 公共资料</li>
+            <li>OpenStreetMap / Overpass 周边配套检索</li>
+            <li>100 Van Ness、150 Van Ness、Opera Plaza、Polk Street、Japantown / Japan Center 等公开项目与社区资料</li>
+          </ul>
+          <p class="source">设计说明：本页面采用标签式分区展示，便于与客户一起逐段浏览，也更容易在未来继续升级为更完整的线上展示页面。</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.panel');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        buttons.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
