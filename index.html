@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>950 Van Ness Ave — Residential Redevelopment Report</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --text: #1c2434;
+      --muted: #667085;
+      --line: #e6eaf2;
+      --brand: #183969;
+      --brand-2: #2457a6;
+      --accent: #eef4ff;
+      --shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef3fb 0%, var(--bg) 220px);
+    }
+    .page {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--brand) 0%, #234a86 45%, #2e6bc0 100%);
+      color: white;
+      border-radius: 26px;
+      padding: 34px 36px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      opacity: .82;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 38px;
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 950px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.92);
+    }
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0,1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .sidebar h3 {
+      margin: 6px 8px 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .tablist {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tab-btn {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .tab-btn:hover { background: #f7f9fd; }
+    .tab-btn.active {
+      background: var(--accent);
+      color: var(--brand);
+      border-color: #cddcf8;
+      font-weight: 600;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .panel {
+      display: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .panel.active { display: block; }
+    .section-title {
+      margin: 0 0 14px;
+      color: var(--brand);
+      font-size: 28px;
+      line-height: 1.15;
+    }
+    .lede {
+      background: #f8fbff;
+      border-left: 4px solid var(--brand-2);
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      color: #344054;
+      line-height: 1.65;
+    }
+    p { line-height: 1.7; margin: 0 0 14px; }
+    ul { margin: 0 0 14px 0; padding-left: 20px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+    .card {
+      background: #fafcff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .card .k {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+    .card .v {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 6px;
+    }
+    .card .s {
+      color: #475467;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 18px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 12px 10px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    th {
+      background: #f6f8fc;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    .source {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .quote {
+      background: linear-gradient(180deg, #f8fbff, #eef4ff);
+      border: 1px solid #d4e1fb;
+      border-radius: 16px;
+      padding: 18px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #23314f;
+    }
+    .figure {
+      margin: 18px 0 20px;
+      background: #fbfcfe;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 12px;
+    }
+    .figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    .figcap {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+    .mini {
+      background: #fafcff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .mini h4 { margin: 0 0 10px; color: var(--brand); font-size: 18px; }
+    @media (max-width: 1100px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .page { padding: 16px; }
+      .hero { padding: 24px 20px; }
+      h1 { font-size: 30px; }
+      .cards { grid-template-columns: 1fr; }
+      .panel { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Residential redevelopment positioning report</div>
+      <h1>950 Van Ness Ave, San Francisco, CA 94109</h1>
+      <p>Positioning 950 Van Ness as a compelling residential redevelopment opportunity by pairing the site story with submarket and metro-level multifamily data, neighborhood amenities, and a clear buyer-facing narrative.</p>
+      <div class="meta">
+        <div class="pill">Prepared for Alina</div>
+        <div class="pill">Date: 2026-03-18</div>
+        <div class="pill">Format: Interactive HTML report</div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>Sections</h3>
+        <div class="tablist">
+          <button class="tab-btn active" data-tab="overview">Overview</button>
+          <button class="tab-btn" data-tab="property">Property positioning</button>
+          <button class="tab-btn" data-tab="why">Why this location works</button>
+          <button class="tab-btn" data-tab="demographics">Demographics</button>
+          <button class="tab-btn" data-tab="submarket">Submarket data</button>
+          <button class="tab-btn" data-tab="metro">San Francisco market</button>
+          <button class="tab-btn" data-tab="resident">Target residents</button>
+          <button class="tab-btn" data-tab="amenities">Amenities</button>
+          <button class="tab-btn" data-tab="housing">Housing context</button>
+          <button class="tab-btn" data-tab="corridor">Corridor story</button>
+          <button class="tab-btn" data-tab="message">Buyer message</button>
+          <button class="tab-btn" data-tab="risks">Risks</button>
+          <button class="tab-btn" data-tab="sources">Methodology & sources</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="panel active" id="overview">
+          <h2 class="section-title">Executive summary</h2>
+          <div class="lede"><strong>Bottom line:</strong> 950 Van Ness is in a central San Francisco corridor that already supports dense urban living. Major healthcare, cultural, retail, education, and transit assets are all close by. The latest CoStar data for the Civic Center/Tenderloin multifamily submarket also shows improving fundamentals: vacancy has tightened to 5.5%, asking rents are up to $2,591 per unit, and no new units were delivered in the last 12 months.</div>
+          <div class="cards">
+            <div class="card"><div class="k">Submarket vacancy</div><div class="v">5.5%</div><div class="s">Improved from 6.7% one year earlier.</div></div>
+            <div class="card"><div class="k">Submarket asking rent</div><div class="v">$2,591</div><div class="s">Below city average, supporting affordability-driven demand.</div></div>
+            <div class="card"><div class="k">SF market vacancy</div><div class="v">4.3%</div><div class="s">Near a decade low per CoStar’s citywide narrative.</div></div>
+            <div class="card"><div class="k">SF market asking rent</div><div class="v">$3,435</div><div class="s">Shows the premium pricing power of the broader metro.</div></div>
+          </div>
+          <ul>
+            <li><strong>Central location:</strong> Fast access to Downtown, Hayes Valley, Nob Hill, Japantown, SOMA, and northern neighborhoods.</li>
+            <li><strong>Transit-led positioning:</strong> Van Ness BRT materially improved corridor mobility, reliability, and safety.</li>
+            <li><strong>Residential precedent:</strong> Nearby product like 100 Van Ness, 150 Van Ness, and Opera Plaza proves the corridor already works for housing.</li>
+            <li><strong>Institutional anchors:</strong> Healthcare, education, and civic uses support steady daily demand.</li>
+            <li><strong>Redevelopment story:</strong> The site reads as a legacy auto use in a corridor increasingly aligned with residential and mixed-use redevelopment.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="property">
+          <h2 class="section-title">Property positioning</h2>
+          <p>Public references identify 950 Van Ness as a former Mercedes-Benz / auto-oriented property on the Van Ness corridor. That matters because the site reads like a leftover auto use in a corridor that now makes more sense as a residential and mixed-use address.</p>
+          <div class="two-col">
+            <div class="mini">
+              <h4>Current read</h4>
+              <ul>
+                <li>Automotive / dealership / vehicle-related identity</li>
+                <li>Legacy low-intensity use on a major urban corridor</li>
+                <li>Better land-use fit today is housing or mixed-use residential</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>Best buyer story</h4>
+              <ul>
+                <li>Residential redevelopment tied to improved transit</li>
+                <li>Healthcare and cultural adjacency</li>
+                <li>Established urban-living appeal rather than a speculative location</li>
+              </ul>
+            </div>
+          </div>
+          <p><strong>Core pitch:</strong> this is central San Francisco on a major boulevard, with major transit investment and neighborhood infrastructure already in place.</p>
+          <p class="source">Site-specific zoning, parcel dimensions, and building metrics should still be cross-checked directly against the OM and San Francisco Planning records before final investment use.</p>
+        </section>
+
+        <section class="panel" id="why">
+          <h2 class="section-title">Why this location works for residential</h2>
+          <h3>Centrality</h3>
+          <p>Van Ness is one of the city’s main north-south corridors. From 950 Van Ness, residents can reach Downtown, Civic Center, Hayes Valley, Polk Street, Nob Hill, and Japantown with relative ease. That kind of access is one of the clearest reasons housing works here.</p>
+          <h3>Transit access</h3>
+          <p>Van Ness is no longer just a wide arterial. According to SFMTA, the Van Ness BRT project introduced dedicated center-running transit lanes and improved performance, with bus travel up to 36% faster, 45% more reliable, and injury collisions down by 50%.</p>
+          <ul>
+            <li>Direct service on the Van Ness BRT / Rapid Network corridor</li>
+            <li>Connections south to Market Street transit and regional job access</li>
+            <li>Improved safety and pedestrian conditions</li>
+            <li>Stronger long-term support for dense residential use</li>
+          </ul>
+          <h3>Institutional strength</h3>
+          <p>The corridor benefits from major civic, healthcare, and educational anchors that support daily activity and residential demand. This is not just a future story. The surrounding institutions already generate steady foot traffic and make the location easier to justify as housing.</p>
+        </section>
+
+        <section class="panel" id="demographics">
+          <h2 class="section-title">Demographic snapshot</h2>
+          <p>The property geocodes to Census Tract 122.02 in San Francisco County. The tract data points to a mature, urban, renter-heavy population with incomes below the citywide average, but still with a meaningful college-educated resident base and a dense apartment market.</p>
+          <table>
+            <thead><tr><th>Metric</th><th>Immediate tract</th><th>San Francisco city</th><th>Takeaway</th></tr></thead>
+            <tbody>
+              <tr><td>Total population</td><td>3,017</td><td>836,321</td><td>Dense urban neighborhood context</td></tr>
+              <tr><td>Median age</td><td>46.2</td><td>39.7</td><td>Area skews more mature than city overall</td></tr>
+              <tr><td>Median household income</td><td>$54,650</td><td>$141,446</td><td>Mixed-income / workforce-oriented immediate context</td></tr>
+              <tr><td>Total housing units</td><td>1,702</td><td>411,542</td><td>Strong multifamily context</td></tr>
+              <tr><td>Owner-occupied units</td><td>178</td><td>139,610</td><td>Low ownership in immediate tract</td></tr>
+              <tr><td>Renter-occupied units</td><td>1,310</td><td>223,040</td><td>Strong renter profile, supportive for rental product</td></tr>
+              <tr><td>25+ with bachelor’s degree</td><td>630</td><td>234,704</td><td>Educated urban resident base</td></tr>
+              <tr><td>25+ with bachelor’s+ degree</td><td>892</td><td>402,351</td><td>Meaningful educational attainment locally</td></tr>
+            </tbody>
+          </table>
+          <p>The immediate tract is not one of San Francisco’s highest-income pockets. Even so, it already supports dense residential living. A well-executed project could draw a stronger renter or buyer profile by leaning into location, transit access, healthcare adjacency, and newer product quality.</p>
+        </section>
+
+        <section class="panel" id="submarket">
+          <h2 class="section-title">Civic Center / Tenderloin multifamily submarket</h2>
+          <p>The CoStar submarket report confirms that the location story is not just about neighborhood amenities. The surrounding multifamily market itself has been improving. Civic Center / Tenderloin entered 2026 with tighter vacancy, rising rents, and no recent new deliveries, which has helped existing product regain pricing power.</p>
+          <table>
+            <thead><tr><th>Metric</th><th>Submarket</th><th>San Francisco market</th><th>Read-through for 950 Van Ness</th></tr></thead>
+            <tbody>
+              <tr><td>Inventory units</td><td>11,184</td><td>190,858</td><td>Established multifamily base</td></tr>
+              <tr><td>Vacancy rate</td><td>5.5%</td><td>4.3%</td><td>Still above metro, but moving in the right direction</td></tr>
+              <tr><td>Vacant units</td><td>610</td><td>8.1K</td><td>Leasing risk exists, but availability has improved</td></tr>
+              <tr><td>Asking rent / unit</td><td>$2,591</td><td>$3,435</td><td>Discount supports affordability-oriented demand</td></tr>
+              <tr><td>Effective rent / unit</td><td>$2,575</td><td>$3,414</td><td>Minimal gap suggests concessions are manageable</td></tr>
+              <tr><td>Concession rate</td><td>0.6%</td><td>0.6%</td><td>In line with broader market</td></tr>
+              <tr><td>Under construction units</td><td>0</td><td>2,939</td><td>No active competing supply in the submarket</td></tr>
+              <tr><td>12-mo delivered units</td><td>0</td><td>1,584</td><td>Existing assets benefit from limited competition</td></tr>
+              <tr><td>Market sale price / unit</td><td>$370K</td><td>$537K</td><td>Lower basis than metro may appeal to value-oriented buyers</td></tr>
+              <tr><td>Market cap rate</td><td>4.8%</td><td>4.5%</td><td>Slightly higher yield than the metro overall</td></tr>
+              <tr><td>12-mo sales volume</td><td>$33.3M</td><td>$2.7B</td><td>Liquidity exists, though thinner locally</td></tr>
+              <tr><td>12-mo transactions</td><td>8</td><td>425</td><td>Limited depth, but not a frozen market</td></tr>
+            </tbody>
+          </table>
+          <p>CoStar also notes roughly 11,000 market-rate units and about 4,000 affordable units in the submarket, with no new deliveries or construction starts over the last year. That supply pause matters. It gives existing and future projects more room to lease without competing against a wave of brand-new inventory.</p>
+          <div class="figure">
+            <img src="submarket-map.png" alt="Civic Center / Tenderloin submarket map" />
+            <div class="figcap">Civic Center / Tenderloin multifamily submarket map. Keep this image file in the same folder as the HTML file so it renders correctly when opened locally.</div>
+          </div>
+        </section>
+
+        <section class="panel" id="metro">
+          <h2 class="section-title">Broader San Francisco multifamily market</h2>
+          <p>The citywide CoStar report makes the local story more compelling. San Francisco’s multifamily market entered 2026 with strong fundamentals: vacancy has fallen to 4.3%, asking rents have reached roughly $3,435 per unit, annual rent growth is running well ahead of many major U.S. markets, and supply remains constrained relative to demand.</p>
+          <table>
+            <thead><tr><th>Metric</th><th>San Francisco</th><th>National</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td>Vacancy rate</td><td>4.3%</td><td>8.6%</td><td>San Francisco is materially tighter than the national average</td></tr>
+              <tr><td>Asking rent / unit</td><td>$3,435</td><td>$1,770</td><td>Major premium to the national market</td></tr>
+              <tr><td>Effective rent / unit</td><td>$3,414</td><td>$1,749</td><td>Limited discounting</td></tr>
+              <tr><td>Concession rate</td><td>0.6%</td><td>1.2%</td><td>Lower concessions than national norms</td></tr>
+              <tr><td>Market sale price / unit</td><td>$537K</td><td>$233K</td><td>Investors still price SF multifamily at a major premium</td></tr>
+              <tr><td>Market cap rate</td><td>4.5%</td><td>6.1%</td><td>Lower cap rates reflect stronger long-term expectations</td></tr>
+              <tr><td>Median household income</td><td>$154,217</td><td>$84,512</td><td>High income base supports premium rents</td></tr>
+              <tr><td>12-mo absorption units</td><td>3,045</td><td>395,305</td><td>Demand is still positive despite cost</td></tr>
+              <tr><td>Under construction units</td><td>2,939</td><td>551,407</td><td>Construction exists but remains historically subdued for SF</td></tr>
+            </tbody>
+          </table>
+          <p>CoStar’s citywide narrative highlights several themes that help position 950 Van Ness: downtown-oriented neighborhoods are recovering, return-to-office activity improves daily relevance for central locations, and hiring tied to tech and AI has brought higher-income renters back into the market. At the same time, high construction costs, complex entitlements, and financing constraints keep supply muted.</p>
+          <p>For 950 Van Ness, the takeaway is simple: the property sits in a submarket that is improving, inside a metro that is already outperforming the national apartment market on vacancy, rents, concessions, and pricing.</p>
+          <div class="figure">
+            <img src="sf-market-map.png" alt="San Francisco multifamily market map" />
+            <div class="figcap">San Francisco multifamily market map. Keep this image file in the same folder as the HTML file so it renders correctly when opened locally.</div>
+          </div>
+        </section>
+
+        <section class="panel" id="resident">
+          <h2 class="section-title">Who would want to live here?</h2>
+          <ul>
+            <li>Young professionals who want central access without depending on a car</li>
+            <li>Medical professionals and healthcare staff given proximity to CPMC and related medical offices</li>
+            <li>Graduate students / faculty / education-adjacent residents tied to nearby institutions and city access</li>
+            <li>Urban empty nesters / downsizers who value convenience, culture, and healthcare access</li>
+            <li>International and domestic renters who prioritize a recognizable, central San Francisco address with transit and services</li>
+            <li>Lifestyle-driven residents who want quick access to dining, arts, shopping, and multiple neighborhoods</li>
+            <li>Affordability-conscious renters who want a central location at rents below the broader San Francisco average</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="amenities">
+          <h2 class="section-title">Education, healthcare, faith, and daily-life amenities</h2>
+          <div class="two-col">
+            <div class="mini">
+              <h4>Schools / education</h4>
+              <ul>
+                <li>Sacred Heart Cathedral Preparatory School</li>
+                <li>Tenderloin Community School</li>
+                <li>Redding Elementary School</li>
+                <li>DeMarillac Academy</li>
+                <li>Stuart Hall High School</li>
+                <li>Academy of Art University programs nearby</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>Healthcare</h4>
+              <ul>
+                <li>CPMC Van Ness Campus — 274-bed hospital</li>
+                <li>Strong nearby medical office concentration</li>
+                <li>Useful for medical workers, patient families, and convenience-driven renters</li>
+              </ul>
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="mini">
+              <h4>Places of worship</h4>
+              <ul>
+                <li>Saint Mark’s Lutheran Church</li>
+                <li>First Unitarian Universalist Church</li>
+                <li>Hamilton Square Baptist Church</li>
+                <li>Trinity Episcopal Church</li>
+                <li>Saint Gregory of Nyssa Episcopal Church</li>
+                <li>Al Tawheed Mosque</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h4>Retail / grocery</h4>
+              <ul>
+                <li>Whole Foods Market</li>
+                <li>Trader Joe’s</li>
+                <li>Nijiya Market</li>
+                <li>Sutter Fine Foods</li>
+                <li>Golden Farmer Market</li>
+                <li>Opera Plaza, Japantown / Japan Center, Polk Street</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="housing">
+          <h2 class="section-title">Housing / residential context</h2>
+          <p>The strongest argument for residential redevelopment is simple: the corridor already works as a residential address.</p>
+          <ul>
+            <li><strong>100 Van Ness</strong> is a major adaptive-reuse success story that converted a former office building into apartments.</li>
+            <li><strong>150 Van Ness</strong> reinforces the corridor’s appeal as a contemporary multifamily address.</li>
+            <li><strong>Opera Plaza</strong> and nearby multifamily product show longstanding acceptance of residential living in the district.</li>
+          </ul>
+          <p>The buyer is not being asked to create a residential node from scratch. The residential base is already there. The opportunity is to replace an outdated land use with one that fits the corridor better today.</p>
+        </section>
+
+        <section class="panel" id="corridor">
+          <h2 class="section-title">Corridor story</h2>
+          <p>This is where the location gets easier to sell. Van Ness has long been wide, prominent, and in places overly car-oriented, but city policy and public investment have been pushing the corridor in a different direction: safer streets, better transit, a stronger mixed-use identity, and a more housing-friendly pattern of development.</p>
+          <ul>
+            <li>The San Francisco General Plan frames Van Ness as a major mixed-use boulevard and transit corridor.</li>
+            <li>The BRT investment is visible public-sector commitment.</li>
+            <li>Nearby adaptive-reuse and apartment projects show the market has already been moving residential.</li>
+            <li>Legacy automotive uses increasingly feel underutilized relative to corridor value.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="message">
+          <h2 class="section-title">Buyer message</h2>
+          <div class="quote">"This site gives you the chance to redevelop a legacy auto-oriented parcel in a corridor that already has the basics residential buyers and renters care about: central access, transit, healthcare, groceries, culture, schools, and neighborhood infrastructure. Van Ness does not need a speculative story to work. It already works, and the public realm improvements only make the case stronger."</div>
+        </section>
+
+        <section class="panel" id="risks">
+          <h2 class="section-title">Risks / watchpoints</h2>
+          <ul>
+            <li>Immediate tract income is below citywide levels, so positioning should focus on corridor upside, central access, and product differentiation.</li>
+            <li>Parts of the broader Civic Center / Tenderloin edge can carry perception issues; the pitch should counter this with healthcare, culture, transit investment, and corridor identity.</li>
+            <li>CoStar shows the submarket is improving, but it still trails the broader market on vacancy and rent levels, so underwriting should remain disciplined.</li>
+            <li>Transaction volume in the submarket is relatively thin, which means valuation support and buyer depth may be more limited than in stronger institutional submarkets.</li>
+            <li>Parcel data, entitlement assumptions, height/bulk controls, zoning, and unit-yield assumptions should still be verified directly against planning records and the OM.</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="sources">
+          <h2 class="section-title">Methodology & sources</h2>
+          <p>This interactive page is based on the final research document and reorganized for easier navigation and presentation.</p>
+          <ul>
+            <li>Client-provided Offering Memorandum (OM) for 950 Van Ness Ave</li>
+            <li>CoStar Civic Center / Tenderloin multifamily submarket report</li>
+            <li>CoStar San Francisco multifamily market report</li>
+            <li>U.S. Census Bureau, 2023 ACS 5-Year Profile tables</li>
+            <li>San Francisco General Plan: Van Ness Avenue</li>
+            <li>SFMTA: Van Ness Bus Rapid Transit materials</li>
+            <li>Sutter Health / CPMC Van Ness Campus public information</li>
+            <li>OpenStreetMap / Overpass nearby amenity mapping</li>
+            <li>Public project and neighborhood references for 100 Van Ness, 150 Van Ness, Opera Plaza, Polk Street, and Japantown / Japan Center</li>
+          </ul>
+          <p class="source">Design note: sections are separated into tabs so the report is easier to review live with a client, share internally, or adapt into a polished presentation later.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.panel');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab;
+        buttons.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
