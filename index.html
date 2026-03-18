@@ -95,6 +95,25 @@
       flex-direction: column;
       gap: 8px;
     }
+    .mobile-nav-toggle {
+      display: none;
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #f8fbff;
+      color: var(--brand);
+      padding: 12px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .mobile-nav-toggle span {
+      float: right;
+      color: var(--muted);
+      font-weight: 400;
+    }
     .tab-btn {
       width: 100%;
       text-align: left;
@@ -244,6 +263,14 @@
     @media (max-width: 1100px) {
       .layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
+      .mobile-nav-toggle { display: block; }
+      .tablist {
+        display: none;
+      }
+      .sidebar.open .tablist {
+        display: flex;
+        margin-top: 8px;
+      }
       .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .two-col { grid-template-columns: 1fr; }
     }
@@ -270,7 +297,8 @@
     </section>
 
     <div class="layout">
-      <aside class="sidebar">
+      <aside class="sidebar" id="mobileSidebar">
+        <button class="mobile-nav-toggle" id="mobileNavToggle">Sections <span id="mobileNavLabel">Show</span></button>
         <h3>Sections</h3>
         <div class="tablist">
           <button class="tab-btn active" data-tab="overview">Overview</button>
@@ -543,6 +571,17 @@
   <script>
     const buttons = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.panel');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const mobileNavLabel = document.getElementById('mobileNavLabel');
+
+    if (mobileNavToggle) {
+      mobileNavToggle.addEventListener('click', () => {
+        mobileSidebar.classList.toggle('open');
+        mobileNavLabel.textContent = mobileSidebar.classList.contains('open') ? 'Hide' : 'Show';
+      });
+    }
+
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.tab;
@@ -550,6 +589,10 @@
         panels.forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById(id).classList.add('active');
+        if (window.innerWidth <= 1100 && mobileSidebar) {
+          mobileSidebar.classList.remove('open');
+          mobileNavLabel.textContent = 'Show';
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
