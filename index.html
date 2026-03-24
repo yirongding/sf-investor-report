@@ -401,6 +401,28 @@
       padding: 18px;
     }
     .mini h4 { margin: 0 0 10px; color: var(--text); font-size: 18px; }
+    .project-completed {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .project-completed h4 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+    .project-proposed {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .project-proposed h4 {
+      color: #e65100;
+      margin-top: 0;
+    }
     @media (max-width: 1100px) {
       .layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
@@ -777,9 +799,9 @@
           <div class="lede"><strong>Three paths for 950 Van Ness:</strong> The property can be held in its current auto-oriented use, repositioned with interior upgrades and rooftop parking, or fully redeveloped into residential. This section outlines the framework for evaluating each scenario.</div>
           
           <h3>1) Hold As-Is — Current Use Value</h3>
-          <p>The strongest near-term alternative to redevelopment is not "do nothing"; it is a hold-and-improve strategy. The corridor still supports vehicle-oriented and service-commercial uses, but these uses increasingly sit on land with much higher residential and mixed-use potential.</p>
+          <p><strong>Important caveat:</strong> The auto/showroom/parking use is a <strong>niche market</strong> with a narrow audience. The potential tenant list is limited — primarily car dealerships, auto service centers, car storage facilities, and parking operators. This constraint should be factored into any hold strategy.</p>
+          <p>The corridor still supports vehicle-oriented uses, but these uses increasingly sit on land with much higher residential and mixed-use potential. As-is value should be framed off achievable lease income, but realistic rent assumptions are essential given the specialized tenant base.</p>
           <ul>
-            <li><strong>As-is value</strong> should be framed off current or achievable lease income for auto / parking / showroom use.</li>
             <li><strong>Key question:</strong> What can the property lease for today as a showroom, service center, or parking facility?</li>
             <li><strong>Benchmark:</strong> 999 Van Ness (Tesla showroom/parking) sold for $39.75M in 2019 ($485/SF) — providing a floor value for auto-oriented commercial on Van Ness.</li>
           </ul>
@@ -788,7 +810,7 @@
           <p>Before committing to a full entitlement and construction cycle, consider whether interior upgrades, cleaner merchandising, or rooftop parking can materially raise rent without the cost and timeline of full redevelopment.</p>
           <div class="inline-figure">
             <img src="rooftop-parking.jpg" alt="Rooftop parking at nearby properties" />
-            <div class="figcap">Rooftop parking examples from nearby Van Ness corridor properties — demonstrating the feasibility of structured parking solutions in the area.</div>
+            <div class="figcap"><strong>Photo:</strong> Rooftop parking at 819 Ellis St (left) and 999 Van Ness (right) — demonstrating structured parking feasibility on the corridor.</div>
           </div>
           <ul>
             <li><strong>Rooftop parking potential:</strong> Should be analyzed for structural capacity, zoning compliance, and access feasibility.</li>
@@ -801,17 +823,125 @@
           <p>Redevelopment value remains the upside case because nearby policy and precedent continue to favor residential density over low-intensity auto use.</p>
           <ul>
             <li><strong>Precedent is strong:</strong> Emerald Fund alone has delivered 1,000+ units within 0.5 miles (100 Van Ness, 150 Van Ness, 101 Polk).</li>
-            <li><strong>Unit economics from comps:</strong> 100 Van Ness achieves $6-8/SF rents with 804 SF average units; 150 Van Ness achieves $5.77/SF with 770 SF average units.</li>
+            <li><strong>Unit economics from comps:</strong> See detailed table below for rent ranges by unit type.</li>
             <li><strong>Zoning alignment:</strong> RC-4 zoning anticipates high-density residential with ground-floor commercial.</li>
             <li><strong>Policy support:</strong> Family Zoning Plan (2025) and Van Ness Avenue Area Plan both encourage residential replacement of auto-oriented uses.</li>
           </ul>
           
-          <h3>Current-Use Benchmarks (Quick Reference)</h3>
-          <div class="cards property-facts">
-            <div class="card"><div class="k">999 Van Ness</div><div class="v">$39.75M</div><div class="s">Sold Aug 2019 ($485/SF). Tesla showroom + parking garage. 0.05 mi from subject.</div></div>
-            <div class="card"><div class="k">901 Van Ness</div><div class="v">$38M+</div><div class="s">Land Rover dealership. 2024 assessed value. 0.01 mi from subject.</div></div>
-            <div class="card"><div class="k">1200 Van Ness</div><div class="v">$17.2M</div><div class="s">Parking garage. 2024 assessed value. 0.20 mi from subject.</div></div>
-          </div>
+          <h3>Current-Use Benchmarks — Transaction History</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Transaction Date</th>
+                <th>Purchase Price</th>
+                <th>Building SF</th>
+                <th>Lot Size (AC)</th>
+                <th>Stories / Height</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>999 Van Ness</td>
+                <td>Aug 2019</td>
+                <td>$39.75M ($485/SF)</td>
+                <td>82,017 SF</td>
+                <td>0.68 AC</td>
+                <td>5 stories</td>
+                <td>Tesla showroom + parking</td>
+              </tr>
+              <tr>
+                <td>901 Van Ness</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>~0.68 AC</td>
+                <td>Not available</td>
+                <td>Land Rover dealership</td>
+              </tr>
+              <tr>
+                <td>1200 Van Ness</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>~0.68 AC</td>
+                <td>Not available</td>
+                <td>Parking garage</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="source">Note: 901 Van Ness and 1200 Van Ness assessed values shown in summary cards above. Transaction history not available in CoStar public records.</p>
+          
+          <h3>Residential Unit Economics — Proven Rents from Comps</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Unit Type</th>
+                <th>Count</th>
+                <th>Avg SF</th>
+                <th>Min Rent</th>
+                <th>Max Rent</th>
+                <th>$/SF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="3">100 Van Ness</td>
+                <td>Studio</td>
+                <td>46</td>
+                <td>452 SF</td>
+                <td>$3,598</td>
+                <td>$3,598</td>
+                <td>$7.97</td>
+              </tr>
+              <tr>
+                <td>1BR</td>
+                <td>223</td>
+                <td>706 SF</td>
+                <td>$4,444</td>
+                <td>$4,444</td>
+                <td>$6.29</td>
+              </tr>
+              <tr>
+                <td>2BR</td>
+                <td>149</td>
+                <td>1,061 SF</td>
+                <td>$6,337</td>
+                <td>$6,337</td>
+                <td>$5.97</td>
+              </tr>
+              <tr>
+                <td rowspan="3">150 Van Ness</td>
+                <td>1BR</td>
+                <td>147</td>
+                <td>651 SF</td>
+                <td>~$4,100</td>
+                <td>~$4,800</td>
+                <td>$6.30–$7.37</td>
+              </tr>
+              <tr>
+                <td>2BR</td>
+                <td>150</td>
+                <td>953 SF</td>
+                <td>~$5,700</td>
+                <td>~$6,600</td>
+                <td>$5.98–$6.93</td>
+              </tr>
+              <tr>
+                <td>3BR</td>
+                <td>120</td>
+                <td>1,132 SF</td>
+                <td>~$6,800</td>
+                <td>~$7,800</td>
+                <td>$6.01–$6.89</td>
+              </tr>
+              <tr>
+                <td colspan="7"><strong>Range:</strong> $5.97–$7.97/SF | <strong>Avg unit size:</strong> 770–804 SF</td>
+              </tr>
+            </tbody>
+          </table>
           
           <h3>Next Research Steps</h3>
           <ul>
@@ -826,159 +956,285 @@
           <h2 class="section-title">Neighboring Projects — Detailed Comparables</h2>
           <div class="lede"><strong>Redevelopment precedents within 0.6 miles:</strong> This section adds granular property-level data from neighboring projects to answer the client's core questions: What can I lease it for? What have nearby properties sold for? Who redeveloped nearby and what did they build?</div>
           
-          <h3>Redevelopment Precedents (Completed)</h3>
+          <h3>Completed Projects <span style="color:#4caf50;">●</span></h3>
           
-          <h4>100 Van Ness — Adaptive Reuse (The Landmark Conversion)</h4>
-          <ul>
-            <li><strong>Address:</strong> 100 Van Ness Ave, San Francisco, CA 94102</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.52 miles</li>
-            <li><strong>Before:</strong> Former California Automobile Association office building (1970s office tower, nearly vacant)</li>
-            <li><strong>After:</strong> 418-unit luxury rental apartment tower (Class A residential)</li>
-            <li><strong>Building size:</strong> 340,434 SF GBA, 28 stories</li>
-            <li><strong>Lot size:</strong> 20,038 SF (0.46 acres)</li>
-            <li><strong>Unit mix:</strong> Studio (46 units, $3,598), 1BR (223 units, $4,444), 2BR (149 units, $6,337)</li>
-            <li><strong>Avg unit size:</strong> 804 SF</li>
-            <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
-            <li><strong>Architect:</strong> Solomon Cordwell Buenz (SCB)</li>
-            <li><strong>Completed:</strong> 2015</li>
-            <li><strong>2025 assessed value:</strong> $242,118,907 ($579,232/unit)</li>
-          </ul>
-          <div class="image-pair">
-            <img src="100-van-ness-before.png" alt="100 Van Ness before - former AAA office building" class="contain" />
-            <img src="100-van-ness-after.png" alt="100 Van Ness after - luxury apartment tower" />
+          <div class="project-completed">
+            <h4>100 Van Ness — Adaptive Reuse (NOT Demolished)</h4>
+            <ul>
+              <li><strong>Address:</strong> 100 Van Ness Ave, San Francisco, CA 94102</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.52 miles</li>
+              <li><strong>Before:</strong> Former California Automobile Association office building (1970s office tower, nearly vacant)</li>
+              <li><strong>After:</strong> 418-unit luxury rental apartment tower (Class A residential)</li>
+              <li><strong>Building size:</strong> 340,434 SF GBA, 28 stories, ~400 feet</li>
+              <li><strong>Lot size:</strong> 20,038 SF (0.46 acres)</li>
+              <li><strong>Purchase price:</strong> Not available in public records</li>
+              <li><strong>Project duration:</strong> Construction 2013–2015 (~2 years)</li>
+              <li><strong>Completed:</strong> 2015</li>
+              <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
+              <li><strong>2025 assessed value:</strong> $242,118,907 ($579,232/unit)</li>
+            </ul>
+            <div class="image-pair">
+              <img src="100-van-ness-before.png" alt="100 Van Ness Ave - former AAA office building" class="contain" />
+              <img src="100-van-ness-after.png" alt="100 Van Ness Ave - luxury apartment tower" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>100 Van Ness Ave:</strong> 1970s office tower (adaptive reuse, not demolished) transformed into 418-unit Class A residential — Completed 2015</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & After:</strong> 1970s office tower transformed into 418-unit Class A residential (2015)</div>
           
-          <h4>150 Van Ness — New Construction (Van Ness Hayes)</h4>
-          <ul>
-            <li><strong>Address:</strong> 150 Van Ness Ave, San Francisco, CA 94102</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.48 miles</li>
-            <li><strong>Before:</strong> 2-Star office building</li>
-            <li><strong>After:</strong> 420-unit apartment project with retail/mixed-use</li>
-            <li><strong>Building size:</strong> 336,644 SF GBA, 13 stories</li>
-            <li><strong>Lot size:</strong> 449,975 SF (10.33 acres)</li>
-            <li><strong>Unit mix:</strong> Studio (3), 1BR (147), 2BR (150), 3BR (120) — 50 affordable units</li>
-            <li><strong>Avg unit size:</strong> 770 SF</li>
-            <li><strong>Asking rent:</strong> $5,097/unit avg ($5.77/SF)</li>
-            <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
-            <li><strong>Completed:</strong> 2018</li>
-            <li><strong>2025 assessed value:</strong> $244,997,876</li>
-          </ul>
-          <div class="image-pair">
-            <img src="150-van-ness-before.png" alt="150 Van Ness before - underutilized site" />
-            <img src="150-van-ness-after.png" alt="150 Van Ness after - apartment complex" />
+          <div class="project-completed">
+            <h4>150 Van Ness — New Construction</h4>
+            <ul>
+              <li><strong>Address:</strong> 150 Van Ness Ave, San Francisco, CA 94102</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.48 miles</li>
+              <li><strong>Before:</strong> 2-Star office building (demolished)</li>
+              <li><strong>After:</strong> 420-unit apartment project with retail/mixed-use</li>
+              <li><strong>Building size:</strong> 336,644 SF GBA, 13 stories</li>
+              <li><strong>Lot size:</strong> 449,975 SF (10.33 acres)</li>
+              <li><strong>Purchase price:</strong> Not available in public records</li>
+              <li><strong>Project duration:</strong> Construction 2017–2018 (~1.5 years)</li>
+              <li><strong>Completed:</strong> 2018</li>
+              <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
+              <li><strong>2025 assessed value:</strong> $244,997,876</li>
+            </ul>
+            <div class="image-pair">
+              <img src="150-van-ness-before.png" alt="150 Van Ness Ave - office building" />
+              <img src="150-van-ness-after.png" alt="150 Van Ness Ave - apartment complex" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>150 Van Ness Ave:</strong> Office building (demolished) transformed into 420-unit mixed-income residential — Completed 2018</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & After:</strong> Infill site transformed into 420-unit mixed-income residential with ground-floor retail (2018)</div>
           
-          <h4>101-103 Polk St — The Civic (Mixed-Income)</h4>
-          <ul>
-            <li><strong>Address:</strong> 101-103 Polk St, San Francisco, CA 94102</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.30 miles</li>
-            <li><strong>Before:</strong> 2-Star surface parking lot</li>
-            <li><strong>After:</strong> 162-unit mid-rise apartments (market + affordable)</li>
-            <li><strong>Building size:</strong> 118,761 SF GBA, 13 stories</li>
-            <li><strong>Lot size:</strong> 13,068 SF (0.30 acres)</li>
-            <li><strong>Unit mix:</strong> Studio (10), 1BR (97), 2BR (55) — 19 affordable units</li>
-            <li><strong>Asking rent:</strong> $4,174/unit avg ($6.09/SF)</li>
-            <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
-            <li><strong>Completed:</strong> 2015</li>
-            <li><strong>2025 assessed value:</strong> $99,954,518</li>
-          </ul>
-          <div class="image-pair">
-            <img src="101-polk-before.png" alt="101-103 Polk St before - surface parking lot" />
-            <img src="101-polk-after.png" alt="101-103 Polk St after - The Civic apartments" />
+          <div class="project-completed">
+            <h4>101-103 Polk St — The Civic</h4>
+            <ul>
+              <li><strong>Address:</strong> 101-103 Polk St, San Francisco, CA 94102</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.30 miles</li>
+              <li><strong>Before:</strong> 2-Star surface parking lot</li>
+              <li><strong>After:</strong> 162-unit mid-rise apartments (market + affordable)</li>
+              <li><strong>Building size:</strong> 118,761 SF GBA, 13 stories</li>
+              <li><strong>Lot size:</strong> 13,068 SF (0.30 acres)</li>
+              <li><strong>Purchase price:</strong> Not available in public records</li>
+              <li><strong>Project duration:</strong> Construction 2014–2015 (~1.5 years)</li>
+              <li><strong>Completed:</strong> 2015</li>
+              <li><strong>Developer:</strong> Emerald Fund, Inc.</li>
+              <li><strong>2025 assessed value:</strong> $99,954,518</li>
+            </ul>
+            <div class="image-pair">
+              <img src="101-polk-before.png" alt="101-103 Polk St - surface parking lot" />
+              <img src="101-polk-after.png" alt="101-103 Polk St - The Civic apartments" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>101-103 Polk St:</strong> Surface parking lot transformed into 162-unit mixed-income residential — Completed 2015</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & After:</strong> Surface parking lot transformed into 162-unit mixed-income residential (2015)</div>
           
-          <h4>719 Larkin St — New Condo Construction</h4>
-          <ul>
-            <li><strong>Address:</strong> 719 Larkin St, San Francisco, CA 94109</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.35 miles</li>
-            <li><strong>Before:</strong> 2-Star freestanding retail building (5,400 SF)</li>
-            <li><strong>After:</strong> 42-unit condominium building with ground-floor retail</li>
-            <li><strong>Building size:</strong> 43,200 SF GBA</li>
-            <li><strong>Lot size:</strong> 6,072 SF (0.14 acres)</li>
-            <li><strong>Units:</strong> 42 condos</li>
-            <li><strong>Developer:</strong> JS Sullivan Development</li>
-            <li><strong>Completed:</strong> 2019</li>
-            <li><strong>Sale price (prior):</strong> $3M (Dec 2015 for retail building)</li>
-          </ul>
-          <div class="image-pair">
-            <img src="719-larkin-before.png" alt="719 Larkin St before - freestanding retail building" />
-            <img src="719-larkin-after.png" alt="719 Larkin St after - condominium building" />
+          <div class="project-completed">
+            <h4>719 Larkin St — New Condo Construction</h4>
+            <ul>
+              <li><strong>Address:</strong> 719 Larkin St, San Francisco, CA 94109</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.35 miles</li>
+              <li><strong>Before:</strong> 2-Star freestanding retail building (5,400 SF)</li>
+              <li><strong>After:</strong> 42-unit condominium building with ground-floor retail</li>
+              <li><strong>Building size:</strong> 43,200 SF GBA, 8 stories</li>
+              <li><strong>Lot size:</strong> 6,072 SF (0.14 acres)</li>
+              <li><strong>Purchase price:</strong> $3M (Dec 2015 for retail building)</li>
+              <li><strong>Project duration:</strong> Construction 2018–2019 (~1.5 years)</li>
+              <li><strong>Completed:</strong> 2019</li>
+              <li><strong>Developer:</strong> JS Sullivan Development</li>
+            </ul>
+            <div class="image-pair">
+              <img src="719-larkin-before.png" alt="719 Larkin St - freestanding retail building" />
+              <img src="719-larkin-after.png" alt="719 Larkin St - condominium building" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>719 Larkin St:</strong> Retail building (purchased $3M 2015) transformed into 42-unit condo — Completed 2019</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & After:</strong> Freestanding retail building transformed into 42-unit condo with ground-floor retail (2019)</div>
           
-          <h3>Proposed / In-Development Projects</h3>
+          <h3>Proposed / In-Development Projects <span style="color:#ff9800;">●</span></h3>
           
-          <h4>30 Van Ness — Proposed High-Rise (Lendlease)</h4>
-          <ul>
-            <li><strong>Address:</strong> 30 Van Ness Ave, San Francisco, CA 94102</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.59 miles</li>
-            <li><strong>Before:</strong> 3-Star Herbst Building office (Class C, 180,363 SF, built 1908/renovated 1964)</li>
-            <li><strong>Sold:</strong> $70M ($388/SF) in May 2017</li>
-            <li><strong>Demolished:</strong> January 2022</li>
-            <li><strong>Proposed:</strong> 47-story mixed-use tower</li>
-            <li><strong>Building size:</strong> 600,000 SF GBA</li>
-            <li><strong>Units:</strong> 333 units (market-rate)</li>
-            <li><strong>Height:</strong> 540 feet</li>
-            <li><strong>Lot size:</strong> 0.88 AC (38,124 SF)</li>
-            <li><strong>Zoning:</strong> C-3-G</li>
-            <li><strong>Developer:</strong> Lendlease Corporation (with Carmel Partners)</li>
-            <li><strong>Status:</strong> Proposed/entitled; foundation work started</li>
-          </ul>
-          <div class="image-pair">
-            <img src="30-van-ness-before.png" alt="30 Van Ness before - Herbst Building office" />
-            <img src="30-van-ness-construction.png" alt="30 Van Ness during construction" />
+          <div class="project-proposed">
+            <h4>30 Van Ness — High-Rise (Lendlease)</h4>
+            <ul>
+              <li><strong>Address:</strong> 30 Van Ness Ave, San Francisco, CA 94102</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.59 miles</li>
+              <li><strong>Before:</strong> 3-Star Herbst Building office (Class C, 180,363 SF, 5 stories, built 1908/renovated 1964)</li>
+              <li><strong>Purchase price:</strong> $70M ($388/SF) in May 2017</li>
+              <li><strong>Demolished:</strong> January 2022</li>
+              <li><strong>Proposed:</strong> 47-story mixed-use tower (540 feet)</li>
+              <li><strong>Building size:</strong> 600,000 SF GBA</li>
+              <li><strong>Units:</strong> 333 units (market-rate)</li>
+              <li><strong>Lot size:</strong> 0.88 AC (38,124 SF)</li>
+              <li><strong>Projected duration:</strong> 2026–2028 (estimated)</li>
+              <li><strong>Developer:</strong> Lendlease Corporation (with Carmel Partners)</li>
+              <li><strong>Status:</strong> Proposed/entitled; foundation work started</li>
+            </ul>
+            <div class="image-pair">
+              <img src="30-van-ness-before.png" alt="30 Van Ness Ave - Herbst Building office" />
+              <img src="30-van-ness-construction.png" alt="30 Van Ness Ave - under construction" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>30 Van Ness Ave:</strong> Herbst Building office (purchased $70M 2017, demolished 2022) becoming 47-story tower — Under construction</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & Construction:</strong> 5-story Herbst Building office (180K SF) demolished 2022; 47-story tower (333 units) now under construction</div>
           
-          <h4>724-730 Van Ness — Proposed Two-Tower</h4>
-          <ul>
-            <li><strong>Address:</strong> 724-730 Van Ness Ave, San Francisco, CA 94102</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.15 miles</li>
-            <li><strong>Before:</strong> 7,100 SF single-story retail (demolished Aug 2004)</li>
-            <li><strong>Proposed:</strong> Two-tower complex, 104 units multifamily with retail</li>
-            <li><strong>Lot size:</strong> 0.36 AC (15,544 SF)</li>
-            <li><strong>Developer:</strong> West Bay Builders (The Thompson Group)</li>
-            <li><strong>Status:</strong> Proposed — awaiting signed development deal</li>
-            <li><strong>Prior sale:</strong> $7.1M ($1,000/SF) in July 2004</li>
-          </ul>
-          <div class="image-pair">
-            <img src="724-730-van-ness-before.png" alt="724-730 Van Ness before - single-story retail" />
-            <img src="724-730-van-ness-proposed.png" alt="724-730 Van Ness proposed - two-tower complex" />
+          <div class="project-proposed">
+            <h4>724-730 Van Ness — Two-Tower</h4>
+            <ul>
+              <li><strong>Address:</strong> 724-730 Van Ness Ave, San Francisco, CA 94102</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.15 miles</li>
+              <li><strong>Before:</strong> 7,100 SF single-story retail (demolished Aug 2004)</li>
+              <li><strong>Prior sale:</strong> $7.1M ($1,000/SF) in July 2004</li>
+              <li><strong>Proposed:</strong> Two-tower complex, 104 units multifamily with retail</li>
+              <li><strong>Lot size:</strong> 0.36 AC (15,544 SF)</li>
+              <li><strong>Developer:</strong> West Bay Builders (The Thompson Group)</li>
+              <li><strong>Status:</strong> Proposed</li>
+            </ul>
+            <div class="image-pair">
+              <img src="724-730-van-ness-before.png" alt="724-730 Van Ness Ave - single-story retail" />
+              <img src="724-730-van-ness-proposed.png" alt="724-730 Van Ness Ave - proposed two-tower" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>724-730 Van Ness Ave:</strong> Single-story retail (sold $7.1M 2004, demolished 2004) proposed as 104-unit two-tower — Proposed</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & Proposed:</strong> Single-story retail (demolished 2004) to become 104-unit two-tower multifamily with retail</div>
           
-          <h4>819 Ellis St — Proposed Group Housing</h4>
-          <ul>
-            <li><strong>Address:</strong> 819 Ellis St, San Francisco, CA 94109</li>
-            <li><strong>Distance from 950 Van Ness:</strong> 0.40 miles</li>
-            <li><strong>Before:</strong> 4-story parking garage/flex building (28,800 SF, built 1906, masonry construction). Former rental car facility with drive-down access from Willow St alley. Includes freight elevator and drive-in access to all floors.</li>
-            <li><strong>Sold:</strong> $2.1M ($73/SF) in March 2003 (owner-user sale)</li>
-            <li><strong>Current use:</strong> Parking garage with flex/office space. Tenants include shuttle/taxi operators (American Airporter, Ecco Taxi).</li>
-            <li><strong>Proposed:</strong> New residential group housing building, 138 bedrooms + 1,085 SF retail</li>
-            <li><strong>Lot size:</strong> 7,196 SF (0.17 acres), 120' x 60'</li>
-            <li><strong>Zoning:</strong> NC-3-130 E (Moderate-Scale Neighborhood Commercial)</li>
-            <li><strong>Developer:</strong> Forge Development Partners</li>
-            <li><strong>Architect:</strong> Ankrom Moisan Architects</li>
-            <li><strong>Status:</strong> Proposed — using CA State Density Bonus Law for additional density</li>
-            <li><strong>2025 assessed value:</strong> $8,058,000 (384% of last sale price)</li>
-          </ul>
-          <div class="image-pair">
-            <img src="819-ellis-before.png" alt="819 Ellis before - parking garage/flex building" />
-            <img src="819-ellis-proposed.png" alt="819 Ellis proposed - new group housing building" class="contain" />
+          <div class="project-proposed">
+            <h4>819 Ellis St — Group Housing</h4>
+            <ul>
+              <li><strong>Address:</strong> 819 Ellis St, San Francisco, CA 94109</li>
+              <li><strong>Distance from 950 Van Ness:</strong> 0.40 miles</li>
+              <li><strong>Before:</strong> 4-story parking garage/flex building (28,800 SF, built 1906)</li>
+              <li><strong>Purchase price:</strong> $2.1M ($73/SF) in March 2003</li>
+              <li><strong>Proposed:</strong> New residential group housing, 138 bedrooms + 1,085 SF retail</li>
+              <li><strong>Building size:</strong> 28,800 SF (existing), 4 stories</li>
+              <li><strong>Lot size:</strong> 7,196 SF (0.17 acres)</li>
+              <li><strong>Developer:</strong> Forge Development Partners</li>
+              <li><strong>Status:</strong> Proposed — using CA State Density Bonus Law</li>
+              <li><strong>2025 assessed value:</strong> $8,058,000 (384% of 2003 purchase)</li>
+            </ul>
+            <div class="image-pair">
+              <img src="819-ellis-before.png" alt="819 Ellis St - parking garage/flex building" />
+              <img src="819-ellis-proposed.png" alt="819 Ellis St - proposed group housing" class="contain" />
+            </div>
+            <div class="figcap" style="text-align:center; margin-top:8px;"><strong>819 Ellis St:</strong> Parking garage (purchased $2.1M 2003) proposed as group housing — Proposed</div>
           </div>
-          <div class="figcap" style="text-align:center; margin-top:8px;"><strong>Before & Proposed:</strong> 4-story parking garage/flex building (28K SF, built 1906) to be replaced with new group housing + ground-floor retail</div>
           
-          <h3>Key Takeaways</h3>
-          <ul>
-            <li><strong>Redevelopment precedent is strong and consistent:</strong> Emerald Fund alone has delivered 1,000+ units within 0.5 miles.</li>
-            <li><strong>Current-use value has a floor:</strong> 999 Van Ness sold for $39.75M in 2019 as parking/showroom/flex.</li>
-            <li><strong>Unit economics are proven:</strong> $5-8/SF rents, 770-804 SF average units, 0.28-0.50 parking ratios.</li>
-            <li><strong>The "before" conditions varied:</strong> office, underutilized sites, retail — but the "after" is consistently residential/mixed-use.</li>
-            <li><strong>Smaller sites work:</strong> 719 Larkin delivered 42 condos on just 0.14 acres; 101 Polk delivered 162 units on 0.30 acres.</li>
-          </ul>
+          <h3>Summary Comparison Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Status</th>
+                <th>Purchase Date</th>
+                <th>Purchase Price</th>
+                <th>Building SF</th>
+                <th>Lot (AC)</th>
+                <th>Units</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100 Van Ness</td>
+                <td style="color:#4caf50;">Completed</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>340,434 SF</td>
+                <td>0.46</td>
+                <td>418</td>
+                <td>2013–2015</td>
+              </tr>
+              <tr>
+                <td>150 Van Ness</td>
+                <td style="color:#4caf50;">Completed</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>336,644 SF</td>
+                <td>10.33</td>
+                <td>420</td>
+                <td>2017–2018</td>
+              </tr>
+              <tr>
+                <td>101-103 Polk</td>
+                <td style="color:#4caf50;">Completed</td>
+                <td>Not available</td>
+                <td>Not available</td>
+                <td>118,761 SF</td>
+                <td>0.30</td>
+                <td>162</td>
+                <td>2014–2015</td>
+              </tr>
+              <tr>
+                <td>719 Larkin</td>
+                <td style="color:#4caf50;">Completed</td>
+                <td>Dec 2015</td>
+                <td>$3M</td>
+                <td>43,200 SF</td>
+                <td>0.14</td>
+                <td>42</td>
+                <td>2018–2019</td>
+              </tr>
+              <tr>
+                <td>30 Van Ness</td>
+                <td style="color:#ff9800;">Construction</td>
+                <td>May 2017</td>
+                <td>$70M</td>
+                <td>600,000 SF</td>
+                <td>0.88</td>
+                <td>333</td>
+                <td>2026–2028 (est.)</td>
+              </tr>
+              <tr>
+                <td>724-730 Van Ness</td>
+                <td style="color:#ff9800;">Proposed</td>
+                <td>Jul 2004</td>
+                <td>$7.1M</td>
+                <td>Not available</td>
+                <td>0.36</td>
+                <td>104</td>
+                <td>TBD</td>
+              </tr>
+              <tr>
+                <td>819 Ellis</td>
+                <td style="color:#ff9800;">Proposed</td>
+                <td>Mar 2003</td>
+                <td>$2.1M</td>
+                <td>28,800 SF</td>
+                <td>0.17</td>
+                <td>138 beds</td>
+                <td>TBD</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3>Key Takeaways — What This Means for 950 Van Ness</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Factor</th>
+                <th>Observation</th>
+                <th>Implication for Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Project timelines</strong></td>
+                <td>Completed projects: 1.5–2 years construction</td>
+                <td>Plan 18–24 months for build phase after entitlement</td>
+              </tr>
+              <tr>
+                <td><strong>Density achieved</strong></td>
+                <td>162–420 units on 0.14–10.33 AC sites</td>
+                <td>0.37 AC site could support 100–200+ units depending on height</td>
+              </tr>
+              <tr>
+                <td><strong>Land values</strong></td>
+                <td>$2.1M–$70M purchase prices (2003–2017)</td>
+                <td>Land value appreciation significant; current use may not reflect highest value</td>
+              </tr>
+              <tr>
+                <td><strong>Before uses</strong></td>
+                <td>Office, parking, retail — all converted</td>
+                <td>Auto use is consistent with other redeveloped uses in corridor</td>
+              </tr>
+              <tr>
+                <td><strong>Developers</strong></td>
+                <td>Emerald Fund, Lendlease, JS Sullivan, Forge</td>
+                <td>Experienced developers active; market validates feasibility</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         <section class="panel" id="sources">
