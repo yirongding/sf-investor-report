@@ -554,27 +554,10 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
     }
-    .map-container {
-      overflow: hidden;
-      position: relative;
-    }
     .map-container img {
       display: block;
       width: 100%;
       height: auto;
-      cursor: zoom-in;
-      transition: transform 0.3s ease;
-      transform-origin: center center;
-    }
-    .map-container.zoomed {
-      cursor: grab;
-    }
-    .map-container.zoomed img {
-      cursor: grab;
-      transform: scale(1.5);
-    }
-    .map-container.zoomed:active {
-      cursor: grabbing;
     }
     .map-note {
       background: #f1ecde;
@@ -584,11 +567,7 @@
       color: var(--muted);
       border-top: 1px solid var(--line);
     }
-    .zoom-hint {
-      font-size: 11px;
-      color: var(--accent);
-      margin-left: 8px;
-    }
+
     .rent-comp-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1610,9 +1589,8 @@
           </table>
           
           <h3>Property Locations Map</h3>
-          <div class="map-container" id="rentMap">
-            <img src="950-van-ness-rent-comps-map.png" alt="950 Van Ness Rent Comparables Map" />
-            <p class="map-note"><strong>Subject Property:</strong> 950 Van Ness Ave (★) | <strong>Numbers 1-20:</strong> Comparable rental properties <span class="zoom-hint">(click to zoom, drag to pan)</span></p>
+          <div class="map-container">
+            <img src="950-van-ness-rent-comps-map.png" alt="950 Van Ness Rent Comparables Map - Numbers 1-20 show comparable rental properties, ★ shows subject property at 950 Van Ness Ave" />
           </div>
           
           <h3>Comparable Properties</h3>
@@ -1646,7 +1624,7 @@
               <h4><a href="https://www.apartments.com/nema-san-francisco-ca/8z5g891/" target="_blank">NEMA</a></h4>
               <p class="comp-address">8 10th St</p>
               <p class="comp-details">2014 • 754 units • 35 stories • Class A Luxury • 5.0★</p>
-              <p class="comp-rent">Studio: $3,663–$3,970 • 1BR: $4,510–$5,374</p>
+              <p class="comp-rent">Studio: $3,663–$3,970 (470–604 SF)<br>1BR: $4,510–$5,374 (761–902 SF)</p>
               <p class="comp-distance">0.55 miles from subject • SOMA</p>
             </div>
             <div class="rent-comp-card">
@@ -1654,7 +1632,7 @@
               <h4><a href="https://www.apartments.com/the-civic-san-francisco-ca/32sh4lf/" target="_blank">The Civic</a></h4>
               <p class="comp-address">101-103 Polk St</p>
               <p class="comp-details">2015 • 162 units • 14 stories • Class A • 4.8★</p>
-              <p class="comp-rent">Studio: $2,997–$3,373 • 1BR: $3,242–$4,212 • 2BR: $4,203–$5,918</p>
+              <p class="comp-rent">Studio: $2,997–$3,373 (453 SF)<br>1BR: $3,242–$4,212 (514–696 SF)<br>2BR: $4,203–$5,918 (836–1,002 SF)</p>
               <p class="comp-distance">0.30 miles from subject</p>
             </div>
             <div class="rent-comp-card">
@@ -1840,61 +1818,7 @@
       });
     });
 
-    // Map zoom and pan functionality
-    const rentMap = document.getElementById('rentMap');
-    if (rentMap) {
-      let isZoomed = false;
-      let isDragging = false;
-      let startX, startY, translateX = 0, translateY = 0;
-      const img = rentMap.querySelector('img');
-      
-      rentMap.addEventListener('click', (e) => {
-        if (!isDragging) {
-          isZoomed = !isZoomed;
-          rentMap.classList.toggle('zoomed', isZoomed);
-          if (!isZoomed) {
-            translateX = 0;
-            translateY = 0;
-            img.style.transform = 'scale(1)';
-          } else {
-            img.style.transform = 'scale(1.5)';
-          }
-        }
-      });
-      
-      rentMap.addEventListener('mousedown', (e) => {
-        if (isZoomed) {
-          isDragging = true;
-          startX = e.clientX - translateX;
-          startY = e.clientY - translateY;
-          rentMap.style.cursor = 'grabbing';
-        }
-      });
-      
-      document.addEventListener('mousemove', (e) => {
-        if (isDragging && isZoomed) {
-          e.preventDefault();
-          translateX = e.clientX - startX;
-          translateY = e.clientY - startY;
-          
-          // Limit pan to keep image within container
-          const maxTranslate = 100;
-          translateX = Math.max(-maxTranslate, Math.min(maxTranslate, translateX));
-          translateY = Math.max(-maxTranslate, Math.min(maxTranslate, translateY));
-          
-          img.style.transform = `scale(1.5) translate(${translateX}px, ${translateY}px)`;
-        }
-      });
-      
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-        if (rentMap) rentMap.style.cursor = isZoomed ? 'grab' : 'default';
-      });
-      
-      rentMap.addEventListener('mouseleave', () => {
-        isDragging = false;
-      });
-    }
+
   </script>
 </body>
 </html>
