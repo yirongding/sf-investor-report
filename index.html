@@ -554,17 +554,27 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
     }
+    .map-container {
+      overflow: hidden;
+      position: relative;
+    }
     .map-container img {
       display: block;
       width: 100%;
       height: auto;
       cursor: zoom-in;
       transition: transform 0.3s ease;
+      transform-origin: center center;
+    }
+    .map-container.zoomed {
+      cursor: grab;
     }
     .map-container.zoomed img {
-      cursor: zoom-out;
+      cursor: grab;
       transform: scale(1.5);
-      transform-origin: center center;
+    }
+    .map-container.zoomed:active {
+      cursor: grabbing;
     }
     .map-note {
       background: #f1ecde;
@@ -1602,7 +1612,7 @@
           <h3>Property Locations Map</h3>
           <div class="map-container" id="rentMap">
             <img src="950-van-ness-rent-comps-map.png" alt="950 Van Ness Rent Comparables Map" />
-            <p class="map-note"><strong>Subject Property:</strong> 950 Van Ness Ave (★) | <strong>Numbers 1-20:</strong> Comparable rental properties <span class="zoom-hint">(click image to zoom)</span></p>
+            <p class="map-note"><strong>Subject Property:</strong> 950 Van Ness Ave (★) | <strong>Numbers 1-20:</strong> Comparable rental properties <span class="zoom-hint">(click to zoom, drag to pan)</span></p>
           </div>
           
           <h3>Comparable Properties</h3>
@@ -1830,11 +1840,59 @@
       });
     });
 
-    // Map zoom functionality
+    // Map zoom and pan functionality
     const rentMap = document.getElementById('rentMap');
     if (rentMap) {
-      rentMap.addEventListener('click', () => {
-        rentMap.classList.toggle('zoomed');
+      let isZoomed = false;
+      let isDragging = false;
+      let startX, startY, translateX = 0, translateY = 0;
+      const img = rentMap.querySelector('img');
+      
+      rentMap.addEventListener('click', (e) => {
+        if (!isDragging) {
+          isZoomed = !isZoomed;
+          rentMap.classList.toggle('zoomed', isZoomed);
+          if (!isZoomed) {
+            translateX = 0;
+            translateY = 0;
+            img.style.transform = 'scale(1)';
+          } else {
+            img.style.transform = 'scale(1.5)';
+          }
+        }
+      });
+      
+      rentMap.addEventListener('mousedown', (e) => {
+        if (isZoomed) {
+          isDragging = true;
+          startX = e.clientX - translateX;
+          startY = e.clientY - translateY;
+          rentMap.style.cursor = 'grabbing';
+        }
+      });
+      
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging && isZoomed) {
+          e.preventDefault();
+          translateX = e.clientX - startX;
+          translateY = e.clientY - startY;
+          
+          // Limit pan to keep image within container
+          const maxTranslate = 100;
+          translateX = Math.max(-maxTranslate, Math.min(maxTranslate, translateX));
+          translateY = Math.max(-maxTranslate, Math.min(maxTranslate, translateY));
+          
+          img.style.transform = `scale(1.5) translate(${translateX}px, ${translateY}px)`;
+        }
+      });
+      
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+        if (rentMap) rentMap.style.cursor = isZoomed ? 'grab' : 'default';
+      });
+      
+      rentMap.addEventListener('mouseleave', () => {
+        isDragging = false;
       });
     }
   </script>
