@@ -548,6 +548,14 @@
     #sale-comps table:first-of-type th {
       font-size: 14px;
     }
+    #sale-comps table:first-of-type th:not(:first-child),
+    #sale-comps table:first-of-type td:not(:first-child) {
+      text-align: right;
+    }
+    #sale-comps table:first-of-type th:first-child,
+    #sale-comps table:first-of-type td:first-child {
+      text-align: left;
+    }
     #sale-comps td:nth-child(4) {
       font-size: 11px;
     }
