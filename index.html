@@ -867,6 +867,7 @@
           <button class="tab-btn" data-tab="hold-reposition">Hold / Reposition / Redevelop</button>
           <button class="tab-btn" data-tab="neighboring">Neighboring Projects</button>
           <button class="tab-btn" data-tab="sale-comps">Condo Sale Comparables</button>
+          <button class="tab-btn" data-tab="land-value">Land Value Estimate</button>
           <button class="tab-btn" data-tab="rent-comps">Rent Comparables</button>
           <button class="tab-btn" data-tab="sources">Methodology & sources</button>
         </div>
@@ -2106,6 +2107,129 @@
           <div class="fine-print">
             <strong>Source:</strong> All data is from MLS.
           </div>
+        </section>
+
+        <section class="panel" id="land-value">
+          <h2 class="section-title">Land Value Estimate — 950 Van Ness Ave</h2>
+          <div class="lede"><strong>Data-first land valuation view:</strong> this page shows the broader neighboring-project transaction context for transparency, while highlighting the three best redevelopment-oriented sale comps currently being used to estimate land value for 950 Van Ness Ave.</div>
+
+          <div class="cards">
+            <div class="card"><div class="k">Indicated range</div><div class="v">$9.0M–$10.0M</div><div class="s">Working land value range based on the best redevelopment-oriented comps.</div></div>
+            <div class="card"><div class="k">Working target</div><div class="v">~$9.5M</div><div class="s">Best-support midpoint for investor-facing positioning today.</div></div>
+            <div class="card"><div class="k">Subject lot size</div><div class="v">0.37 AC</div><div class="s">~16,122 SF corner parcel at Van Ness / O'Farrell / Olive.</div></div>
+            <div class="card"><div class="k">Core logic</div><div class="v">Land basis</div><div class="s">Use pre-development / teardown-oriented trades, not completed-project exit values.</div></div>
+          </div>
+
+          <h3>How the estimate is framed</h3>
+          <ul>
+            <li><strong>Primary metric:</strong> price per land square foot using pre-development or redevelopment-oriented transactions.</li>
+            <li><strong>Best comps emphasized:</strong> <strong>#3 101-103 Polk</strong>, <strong>#8 830 Eddy St</strong>, and <strong>#11 819 Ellis St</strong>.</li>
+            <li><strong>Transparency rule:</strong> all available neighboring-project stats stay visible, but completed-project sellout or stabilized exit prices are not used as direct land comps.</li>
+            <li><strong>Important exclusion:</strong> 830 Eddy's <strong>2025 sale at $43.3M</strong> reflects a developed project price, not vacant/redevelopment land value.</li>
+          </ul>
+
+          <h3>Highlighted redevelopment land comps</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Comp</th>
+                <th>Property</th>
+                <th>Sale used</th>
+                <th>Lot Size</th>
+                <th>Price / Land SF</th>
+                <th>Implied Value for 950 Van Ness</th>
+                <th>How we use it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="status-completed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+                <td><strong>#3</strong></td>
+                <td><strong>101-103 Polk</strong></td>
+                <td>Jan 2014: <strong>$7.2M</strong></td>
+                <td>0.30 AC</td>
+                <td><strong>$533.18 / land SF</strong></td>
+                <td>$8.60M</td>
+                <td>Best like-for-like site size comp; older sale date, so read as a lower anchor before time adjustment.</td>
+              </tr>
+              <tr class="status-completed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+                <td><strong>#8</strong></td>
+                <td><strong>830 Eddy St</strong></td>
+                <td>2018: <strong>$7.5M</strong></td>
+                <td>0.30 AC</td>
+                <td><strong>$568.22 / land SF</strong></td>
+                <td>$9.16M</td>
+                <td>Strong redevelopment comp with similar site size; use pre-development basis only, not the 2025 developed-project trade.</td>
+              </tr>
+              <tr class="status-proposed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+                <td><strong>#11</strong></td>
+                <td><strong>819 Ellis St</strong></td>
+                <td>2023: <strong>$5.99M</strong></td>
+                <td>0.17 AC</td>
+                <td><strong>$832.41 / land SF</strong></td>
+                <td>$13.42M</td>
+                <td>Useful upper indicator because it is much more recent, but smaller lot size likely supports a richer land-SF number than the subject.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="figure">
+            <div style="padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff;">
+              <h4 style="margin-top:0;">Implied land value range from the three best comps</h4>
+              <div style="display:grid; gap:14px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#3 101-103 Polk</strong><span>$8.60M implied</span></div>
+                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:68%; background:#b78a2a;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#8 830 Eddy St</strong><span>$9.16M implied</span></div>
+                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:71%; background:#8f6b1f;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#11 819 Ellis St</strong><span>$13.42M implied</span></div>
+                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:#5d6d7e;"></div></div>
+                </div>
+              </div>
+              <p style="margin:14px 0 0 0;"><strong>Read-through:</strong> using exact land-SF from the source property records, the two similar-size comps point to roughly <strong>$8.6M-$9.2M</strong> before any market-time adjustment, while 819 Ellis reads as a smaller-site, more recent upper indicator. That supports an investor-facing land value conclusion around <strong>$9.0M-$10.0M</strong>, with a working target near <strong>$9.5M</strong>.</p>
+            </div>
+          </div>
+
+          <h3>Full neighboring-project transaction context</h3>
+          <p class="table-disclaimer">Transparency table: all currently available project stats remain visible below, while the highlighted comps above drive the current land-value estimate.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Status</th>
+                <th>Previous Sale</th>
+                <th>Price / SF</th>
+                <th>Building SF</th>
+                <th>Lot (AC)</th>
+                <th>Units</th>
+                <th>Land value relevance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>100 Van Ness</td><td>Completed</td><td>Jan 2008: $58.38M</td><td>$156.92</td><td>340,434 SF</td><td>0.46</td><td>418</td><td>Context only — larger office-to-residential conversion basis.</td></tr>
+              <tr><td>150 Van Ness</td><td>Completed</td><td>Jan 2008: $35.27M</td><td>$235.50</td><td>336,644 SF</td><td>0.90</td><td>420</td><td>Context only — larger portfolio / assembly-style basis.</td></tr>
+              <tr style="background:#fff7e3;"><td><strong>#3 101-103 Polk</strong></td><td>Completed</td><td><strong>Jan 2014: $7.2M</strong></td><td>$494.40</td><td>118,761 SF</td><td><strong>0.30</strong></td><td>162</td><td><strong>Primary comp</strong> — similar lot size and redevelopment logic.</td></tr>
+              <tr><td>719 Larkin</td><td>Completed</td><td>Dec 2015: $3.0M</td><td>$555.56</td><td>43,200 SF</td><td>0.14</td><td>42</td><td>Useful context, but smaller / different scale.</td></tr>
+              <tr><td>55 Oak St</td><td>Completed</td><td>May 2015: $3.45M</td><td>$322.93</td><td>146,578 SF</td><td>0.20</td><td>109</td><td>Secondary context only.</td></tr>
+              <tr style="background:#fff7e3;"><td><strong>#8 830 Eddy St</strong></td><td>Completed</td><td><strong>2018: $7.5M land basis</strong></td><td>Pre-dev basis used</td><td>130,000 SF</td><td><strong>0.30</strong></td><td>137</td><td><strong>Primary comp</strong> — similar lot size; exclude 2025 developed sale.</td></tr>
+              <tr><td>818 Van Ness Ave</td><td>Completed</td><td>Jun 2004: $2.0M</td><td>$149.25</td><td>106,712 SF</td><td>0.23</td><td>52</td><td>Useful corridor context only.</td></tr>
+              <tr><td>1001 Van Ness Ave</td><td>Completed</td><td>Not available</td><td>Not available</td><td>234,259 SF</td><td>0.72</td><td>Not available</td><td>Context only.</td></tr>
+              <tr><td>1545 Pine St</td><td>Completed</td><td>Not available</td><td>Not available</td><td>143,882 SF</td><td>0.33</td><td>103</td><td>Context only.</td></tr>
+              <tr><td>1630-1690 Pine St</td><td>Completed</td><td>Nov 2011: $6.58M</td><td>$135.05</td><td>286,468 SF</td><td>0.81</td><td>260</td><td>Large assembly; not a primary land comp for the subject.</td></tr>
+              <tr><td>1788 Clay St</td><td>Completed</td><td>Not available</td><td>Not available</td><td>102,890 SF</td><td>1.05</td><td>98</td><td>Context only.</td></tr>
+              <tr><td>2525 Van Ness Ave</td><td>Completed</td><td>Jan 2020: $8.0M</td><td>$801.60</td><td>51,695 SF</td><td>0.25</td><td>28</td><td>Interesting small-site context, but product type is less directly comparable.</td></tr>
+              <tr><td>30 Van Ness</td><td>Construction</td><td>May 2017: $70M</td><td>$388.11</td><td>600,000 SF</td><td>0.88</td><td>333</td><td>Too large; context only.</td></tr>
+              <tr><td>724-730 Van Ness</td><td>Proposed</td><td>Jul 2004: $7.1M</td><td>$1,000</td><td>Not available</td><td>0.36</td><td>104</td><td>Lot size is interesting, but the dated transaction limits direct use.</td></tr>
+              <tr><td>1200 Van Ness</td><td>Proposed</td><td>Not available</td><td>Not available</td><td>267,000 SF</td><td>0.68</td><td>107</td><td>Context only.</td></tr>
+              <tr style="background:#fff7e3;"><td><strong>#11 819 Ellis</strong></td><td>Proposed</td><td><strong>2023: $5.99M</strong></td><td>~$72.92 legacy building basis</td><td>28,800 SF</td><td><strong>0.17</strong></td><td>138 beds</td><td><strong>Primary comp</strong> — recent and relevant, but smaller site likely pushes land-SF higher.</td></tr>
+              <tr class="status-subject"><td><strong>950 Van Ness — Subject</strong></td><td>Current</td><td>Oct 2009: $8.45M</td><td>$192.05</td><td>44,000 SF</td><td><strong>0.37</strong></td><td>N/A</td><td><strong>Target site</strong> — investor buys land basis, demolishes existing structure, and redevelops.</td></tr>
+            </tbody>
+          </table>
+
+          <p class="source">Working analysis based on neighboring-project data already compiled in this report plus latest sale notes provided by the team for #3, #8, and #11. Land value conclusion is directional and should be refined further if additional confirmed land-sale records, transfer tax data, or recorder evidence becomes available.</p>
         </section>
 
         <section class="panel" id="rent-comps">
