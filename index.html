@@ -867,6 +867,7 @@
           <button class="tab-btn" data-tab="hold-reposition">Hold / Reposition / Redevelop</button>
           <button class="tab-btn" data-tab="neighboring">Neighboring Projects</button>
           <button class="tab-btn" data-tab="land-value">Land Value Estimate</button>
+          <button class="tab-btn" data-tab="tax-value">Tax-Assessed Value Analysis</button>
           <button class="tab-btn" data-tab="sale-comps">Condo Sale Comparables</button>
           <button class="tab-btn" data-tab="rent-comps">Rent Comparables</button>
           <button class="tab-btn" data-tab="sources">Methodology & sources</button>
@@ -2114,7 +2115,7 @@
           <div class="lede"><strong>Land value overview:</strong> this page presents the broader neighboring-project transaction context for transparency, while highlighting the three strongest redevelopment-oriented sale comps for estimating land value at 950 Van Ness Ave.</div>
 
           <div class="cards">
-            <div class="card"><div class="k">Indicated range</div><div class="v">$9.0M–$10.0M</div><div class="s">Working land value range based on the best redevelopment-oriented comps.</div></div>
+            <div class="card"><div class="k">Indicated range</div><div class="v">$8.6M–$13.4M</div><div class="s">Range implied by the three selected redevelopment-oriented comparables.</div></div>
             <div class="card"><div class="k">Selected comps</div><div class="v">#3, #8, #11</div><div class="s">101-103 Polk, 830 Eddy St, and 819 Ellis St provide the clearest pricing read-through.</div></div>
             <div class="card"><div class="k">Subject lot size</div><div class="v">0.37 AC</div><div class="s">~16,122 SF corner parcel at Van Ness / O'Farrell / Olive.</div></div>
             <div class="card"><div class="k">Core logic</div><div class="v">Land basis</div><div class="s">Use pre-development / teardown-oriented trades, not completed-project exit values.</div></div>
@@ -2137,39 +2138,39 @@
                 <th>Lot Size</th>
                 <th>Lot Size (SF)</th>
                 <th>Price / Land SF</th>
-                <th>Implied Value for 950 Van Ness</th>
+                <th style="background:#fff3bf;">Implied Value for 950 Van Ness</th>
                 <th>How we use it</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="status-completed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+              <tr class="status-completed">
                 <td><strong>#3</strong></td>
                 <td><strong>101-103 Polk</strong></td>
                 <td>Jan 2014: <strong>$7.2M</strong></td>
                 <td>0.30 AC</td>
                 <td>13,504 SF</td>
                 <td><strong>$533.18 / land SF</strong></td>
-                <td>$8.60M</td>
+                <td style="background:#fff9d6;"><strong>$8.60M</strong></td>
                 <td>Best like-for-like site size comp; older sale date, so read as a lower anchor before time adjustment.</td>
               </tr>
-              <tr class="status-completed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+              <tr class="status-completed">
                 <td><strong>#8</strong></td>
                 <td><strong>830 Eddy St</strong></td>
                 <td>2018: <strong>$7.5M</strong><br><span class="table-note">2025 developed-project sale: $43.3M (reference only)</span></td>
                 <td>0.30 AC</td>
                 <td>13,199 SF</td>
                 <td><strong>$568.22 / land SF</strong></td>
-                <td>$9.16M</td>
+                <td style="background:#fff9d6;"><strong>$9.16M</strong></td>
                 <td>Strong redevelopment comp with similar site size; use pre-development basis only, not the 2025 developed-project trade.</td>
               </tr>
-              <tr class="status-proposed" style="outline: 3px solid #b78a2a; outline-offset: -3px;">
+              <tr class="status-proposed">
                 <td><strong>#11</strong></td>
                 <td><strong>819 Ellis St</strong></td>
                 <td>2023: <strong>$5.99M</strong></td>
                 <td>0.17 AC</td>
                 <td>7,196 SF</td>
                 <td><strong>$832.41 / land SF</strong></td>
-                <td>$13.42M</td>
+                <td style="background:#fff9d6;"><strong>$13.42M</strong></td>
                 <td>Useful upper indicator because it is much more recent, but smaller lot size likely supports a richer land-SF number than the subject.</td>
               </tr>
               <tr class="status-subject">
@@ -2179,32 +2180,13 @@
                 <td>0.37 AC</td>
                 <td>16,122 SF</td>
                 <td><strong>$524.13 / land SF</strong></td>
-                <td>—</td>
+                <td style="background:#fff9d6;"><strong>—</strong></td>
                 <td>Subject property reference row.</td>
               </tr>
             </tbody>
           </table>
 
-          <div class="figure">
-            <div style="padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff;">
-              <h4 style="margin-top:0;">Implied land value range from the three best comps</h4>
-              <div style="display:grid; gap:14px;">
-                <div>
-                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#3 101-103 Polk</strong><span>$8.60M implied</span></div>
-                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:68%; background:#b78a2a;"></div></div>
-                </div>
-                <div>
-                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#8 830 Eddy St</strong><span>$9.16M implied</span></div>
-                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:71%; background:#8f6b1f;"></div></div>
-                </div>
-                <div>
-                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>#11 819 Ellis St</strong><span>$13.42M implied</span></div>
-                  <div style="height:14px; background:#eee7d7; border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:#5d6d7e;"></div></div>
-                </div>
-              </div>
-              <p style="margin:14px 0 0 0;"><strong>Read-through:</strong> using exact land-SF from the source property records, the two similar-size comps point to roughly <strong>$8.6M-$9.2M</strong> before any market-time adjustment, while 819 Ellis reads as a smaller-site, more recent upper indicator. Together, these data points support a current land value indication for 950 Van Ness Ave of approximately <strong>$9.0M-$10.0M</strong>.</p>
-            </div>
-          </div>
+          <div class="fine-print"><strong>Formula:</strong> Implied Value for 950 Van Ness = selected comp price per land SF × 16,122 SF subject lot size.</div>
 
           <h3>Full neighboring-project transaction context</h3>
           <p class="table-disclaimer">Transparency table: all currently available project stats remain visible below, while the highlighted comps above drive the current land-value estimate.</p>
@@ -2221,13 +2203,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>1</td><td>100 Van Ness</td><td>Jan 2008: $58.38M</td><td>Jan 2011: $91.71M</td><td>$3,766.76</td><td>15,499 SF (0.36 AC)</td><td>Larger multifamily precedent.</td></tr>
+              <tr><td>1</td><td>100 Van Ness</td><td>Jan 2008: $58.38M</td><td>Not available</td><td>$3,766.76</td><td>15,499 SF (0.36 AC)</td><td>Larger multifamily precedent.</td></tr>
               <tr><td>2</td><td>150 Van Ness</td><td>Jan 2008: $35.27M</td><td>Not available</td><td>$902.74</td><td>39,073 SF (0.90 AC)</td><td>Large-site precedent.</td></tr>
               <tr style="background:#fff7e3;"><td><strong>3</strong></td><td><strong>101-103 Polk</strong></td><td><strong>Jan 2014: $7.2M</strong></td><td>Not available</td><td>$533.18</td><td><strong>13,504 SF (0.31 AC)</strong></td><td>Selected comparable.</td></tr>
               <tr><td>4</td><td>719 Larkin</td><td>Dec 2015: $3.0M</td><td>Not available</td><td>$500.17</td><td>5,998 SF (0.14 AC)</td><td>Smaller-site precedent.</td></tr>
-              <tr><td>5</td><td>55 Oak St</td><td>May 2015: $3.45M</td><td>Nov 24, 2015: $23.0M</td><td>$401.46</td><td>8,590 SF (0.20 AC)</td><td>Completed-project reference.</td></tr>
+              <tr><td>5</td><td>55 Oak St</td><td>May 2015: $3.45M</td><td>Not available</td><td>$401.46</td><td>8,590 SF (0.20 AC)</td><td>Completed-project reference.</td></tr>
               <tr><td>6</td><td>818 Van Ness Ave</td><td>Jun 2004: $2.0M</td><td>Not available</td><td>Not available</td><td>0.23 AC</td><td>Corridor precedent.</td></tr>
-              <tr><td>7</td><td>1001 Van Ness Ave</td><td>Not available</td><td>May 20, 2019: $4.92M</td><td>Not available</td><td>0.72 AC</td><td>Completed-project reference.</td></tr>
+              <tr><td>7</td><td>1001 Van Ness Ave</td><td>Not available</td><td>Not available</td><td>Not available</td><td>0.72 AC</td><td>Completed-project reference.</td></tr>
               <tr style="background:#fff7e3;"><td><strong>8</strong></td><td><strong>830 Eddy St</strong></td><td><strong>2018: $7.5M land basis</strong></td><td>Sep 2025: $43.3M developed-project sale</td><td>$568.22</td><td><strong>13,199 SF (0.30 AC)</strong></td><td><strong>Selected comparable.</strong></td></tr>
               <tr><td>9</td><td>1545 Pine St</td><td>Not available</td><td>Not available</td><td>Not available</td><td>0.33 AC</td><td>Completed-project reference.</td></tr>
               <tr><td>10</td><td>1630-1690 Pine St</td><td>Nov 2011: $6.58M</td><td>Not available</td><td>$185.76</td><td>35,423 SF (0.81 AC)</td><td>Assembly precedent.</td></tr>
@@ -2242,6 +2224,77 @@
           </table>
 
           <p class="source">Data shown on this page are compiled from CoStar products and First American records. Land value conclusions should be refined further as additional confirmed sale records and title data become available.</p>
+        </section>
+
+        <section class="panel" id="tax-value">
+          <h2 class="section-title">Tax-Assessed Value Analysis</h2>
+          <div class="lede"><strong>Value progression from site acquisition to completed asset:</strong> these examples show how assessed values increased after development, helping frame the spread between early land-basis pricing and the value of the finished project.</div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Earlier Site Basis</th>
+                <th>Latest Assessed Value</th>
+                <th>Value Multiple</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>100 Van Ness</td><td>$58.38M (2008)</td><td>$242.12M (2025)</td><td>4.15x</td></tr>
+              <tr><td>55 Oak St</td><td>$3.45M (2015)</td><td>$58.42M (2025)</td><td>16.94x</td></tr>
+              <tr><td>830 Eddy St</td><td>$3.95M (2015)</td><td>$72.73M (2025)</td><td>18.41x</td></tr>
+            </tbody>
+          </table>
+
+          <div class="figure">
+            <div style="padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff;">
+              <h4 style="margin-top:0;">100 Van Ness</h4>
+              <div style="display:grid; gap:12px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Earlier site basis</strong><span>$58.38M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:24%; background:#8f6b1f;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Latest assessed value</strong><span>$242.12M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:#2f5d50;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="figure">
+            <div style="padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff;">
+              <h4 style="margin-top:0;">55 Oak St</h4>
+              <div style="display:grid; gap:12px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Earlier site basis</strong><span>$3.45M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:6%; background:#8f6b1f;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Latest assessed value</strong><span>$58.42M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:#2f5d50;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="figure">
+            <div style="padding:24px; border:1px solid var(--line); border-radius:18px; background:#fff;">
+              <h4 style="margin-top:0;">830 Eddy St</h4>
+              <div style="display:grid; gap:12px;">
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Earlier site basis</strong><span>$3.95M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:5%; background:#8f6b1f;"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:6px;"><strong>Latest assessed value</strong><span>$72.73M</span></div>
+                  <div style="height:16px; background:#ececec; border-radius:999px; overflow:hidden;"><div style="height:100%; width:100%; background:#2f5d50;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="source">Tax-assessed values and earlier acquisition bases shown here are compiled from CoStar products, CompRedux extracts, and First American / public-record references already used elsewhere in this report.</p>
         </section>
 
         <section class="panel" id="rent-comps">
