@@ -2718,6 +2718,7 @@
         panels.forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById(id).classList.add('active');
+        try { localStorage.setItem('alina-pages-site-active-tab', id); } catch (e) {}
         if (window.innerWidth <= 1100 && mobileSidebar) {
           mobileSidebar.classList.remove('open');
           mobileNavLabel.textContent = 'Show';
@@ -2725,6 +2726,17 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
+
+    try {
+      const savedTab = localStorage.getItem('alina-pages-site-active-tab');
+      if (savedTab && document.getElementById(savedTab)) {
+        buttons.forEach(b => b.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        const savedButton = document.querySelector(`.tab-btn[data-tab="${savedTab}"]`);
+        if (savedButton) savedButton.classList.add('active');
+        document.getElementById(savedTab).classList.add('active');
+      }
+    } catch (e) {}
 
     const taxYears = ['2013-2014','2014-2015','2015-2016','2016-2017','2017-2018','2018-2019','2019-2020','2020-2021','2021-2022','2022-2023','2023-2024','2024-2025','2025-2026','2026-2027'];
     const propertyStyles = {
